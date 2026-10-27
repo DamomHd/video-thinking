@@ -6,11 +6,13 @@
  *   · 结构：恰好一个结论、支撑点不超过 3 个、每个支撑点至少一个证据
  *   · 时间：结论在前 1/4 出现、每个点在屏幕上停够读完、每个支撑点占多少秒、多长时间没有承载任何信息点
  *   · 纸面稿：口播和屏幕上的字按时间排成一份稿子——不看画面也要能讲通那一句话
+ *   · 结构（structure.ts）：前 3 秒有没有信息点、配乐高潮那一刻落下的是哪个信息点
  * 只给提示（vw review 汇总），不拦出片。纯函数在前，读文件的入口在最后。
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import type { ReviewItem } from './review.js';
+import { planStructureReview, climaxesOf } from './structure.js';
 
 export const VO_CHARS_PER_SEC = 4;
 export const VO_FILL = 0.85;
@@ -148,6 +150,8 @@ export function runBrief(filmId: string, totalSec: number, root = process.cwd())
   const director = fs.existsSync(dPath) ? fs.readFileSync(dPath, 'utf-8') : '';
   const vPath = path.join(dir, 'audio', 'voice.json');
   const vo: VoLine[] = fs.existsSync(vPath) ? (JSON.parse(fs.readFileSync(vPath, 'utf-8')).lines ?? []) : [];
+  const mPath = path.join(dir, 'audio', 'music.json');
+  const climaxes = climaxesOf(fs.existsSync(mPath) ? JSON.parse(fs.readFileSync(mPath, 'utf-8')) : null);
   const rows = parseBriefTable(director);
-  return { items: briefCheck(rows, totalSec, vo), paper: paperScript(rows, vo) };
+  return { items: [...briefCheck(rows, totalSec, vo), ...planStructureReview(rows, climaxes, vo)], paper: paperScript(rows, vo) };
 }

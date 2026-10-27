@@ -80,6 +80,8 @@ function showHelp() {
                                    --variant=trailer|short 改查衍生片（镜头表 / cue 槽 / 拍网格）
   brief <film>                     内容策划：按时长算信息容量、查结论出现时刻和每个点的时长，输出纸面稿（读决策单「内容策划」信息表 + 口播）
   review <film>                    导演自检：决策单 / 决策↔实现 / 音效调内 / 声音疏密 / 最长静止 / 许可证 / 设计评审（只提示不拦）
+  critic <film> [--frames=a.png,b.png]  冷看包：只打包观众看得到、听得到的（抽帧、能量最高处连拍、每秒能量 / 响度、口播原文）→ out/<film>/critic/；
+                                   再另起一个不带上下文的子代理读 critic/PROMPT.md，回答写到 out/<film>/critic.md（vw review 读回）
 
 看画面与经验（设计评审用，方法见 docs/method/taste.md）:
   still <合成> --at=1.2,3.4        按秒抽静帧（片子或任意合成；只打包一次）→ out/<合成>/stills/ [--out=目录]
@@ -446,6 +448,17 @@ async function main() {
       console.log(`\n[vw brief] ${id}\n`);
       for (const it of r.items) console.log(`  ${mark[it.level]} ${it.text}`);
       console.log(`\n—— 纸面稿（不看画面，这份稿子要能讲通那一句话）——\n${r.paper}\n`);
+      break;
+    }
+
+    case 'critic': {
+      const id = requireFilm(positional[0]);
+      const { buildCriticPack } = await import('../scripts/guard/critic.js');
+      const frames = typeof flags['frames'] === 'string' ? String(flags['frames']).split(',').map((f) => path.resolve(f.trim())).filter(Boolean) : undefined;
+      const r = await buildCriticPack({ root: process.cwd(), filmId: id, frames });
+      console.log(`\n[vw critic] ${path.relative(process.cwd(), r.dir)}/`);
+      console.log(`  下一步：另起一个子代理（不给它决策单、脚本或任何制作说明），只让它读 ${path.relative(process.cwd(), r.prompt)} 并照做`);
+      console.log(`  回答写到 out/${id}/critic.md，vw review 会把它复述的一句话和信息表的结论并排给出\n`);
       break;
     }
 

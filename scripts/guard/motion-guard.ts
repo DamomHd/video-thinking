@@ -97,6 +97,8 @@ export interface MotionReport {
   cuts: number[];
   errors: string[];
   warnings: string[];
+  /** 逐取样的帧差（hz 个 / 秒），给能量曲线用（scripts/guard/structure.ts） */
+  series?: { hz: number; diffs: number[] };
 }
 
 function decodeGrayDiffs(
@@ -406,6 +408,7 @@ export function checkMotion(file: string, options: CheckOptions = {}): MotionRep
     cuts,
     errors,
     warnings,
+    series: { hz: sampleHz, diffs },
   };
 }
 

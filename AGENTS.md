@@ -42,7 +42,8 @@ npx tsx bin/vw.ts --help # 统一命令行 vw（别名 om）
 | 质检守门 | `vw check <片>` |
 | CC0 音效 | `vw sfx kenney sync`；`vw sfx search\|pick <片> [槽] --source=freesound\|kenney` |
 | 内容策划（时长 → 信息容量、结论出现时刻、纸面稿） | `vw brief <片>` |
-| 导演自检（对照决策单，只提示；含和往期片并排 `vs-past.png`） | `vw review <片>` |
+| 导演自检（对照决策单，只提示；含和往期片并排 `vs-past.png`、结构与能量曲线、冷看结果） | `vw review <片>` |
+| 冷看（不带上下文的子代理审片） | `vw critic <片> [--frames=…]` → 子代理读 `out/<片>/critic/PROMPT.md`，写 `out/<片>/critic.md` |
 | 出片（第 3 段自动做响度母带 −14 LUFS） | `vw render <片> --mode=master\|final [--play]` |
 | 读字检查（含字幕压字） | `vw readcheck <片>`（结果给 `vw review`） |
 | 字体落地 | `vw font fetch "<字体>" [--weights=] [--film=<片>]`（中日韩字体必须带 --film，只取用到的字）；片子里 `useLocalFonts` |
@@ -198,12 +199,12 @@ out/                         产物与缓存（gitignore）
 
 ## 10. 导演决策：模型设计，工程兜底
 
-做片时画面怎么设计、声音怎么配、是否 3D 主镜头都由模型决定。流程见 SKILL.md「导演流程」：读经验和方法 → 读素材 / 参考 → 开工前问答 → **内容策划（信息表 + `vw brief` 纸面稿）** →（参考不足时）三个方向 → 决策单 → 四张海报帧过设计评审 → 先做最难的一段 → 铺全片 → `vw check` → 封存、出片 → `vw review`（含设计评审）→ 交付 → 收经验。
+做片时画面怎么设计、声音怎么配、是否 3D 主镜头都由模型决定。流程见 SKILL.md「导演流程」：读经验和方法 → 读素材 / 参考 → 开工前问答 → **内容策划（信息表 + `vw brief` 纸面稿）** →（参考不足时）三个方向 → 决策单 → 四张海报帧过设计评审 → 先做最难的一段 → 铺全片 → `vw check` → 封存、出片 → 冷看（`vw critic` + 不带上下文的子代理）→ `vw review`（含设计评审）→ 交付 → 收经验。
 
 - **新增能力时同步更新 `docs/capabilities.md`**（能做什么 · 在哪 · 什么时候用 · 前提），否则模型规划时看不到它。
 - `vw review`（`scripts/guard/review.ts`）只给提示、不拦出片；要变成硬规则的放进 `vw check`。
 - 方法库借鉴 huashu-motion（原文照收、开头注明出处），本工程的改写与取舍写在 `docs/library/adaptation.md`，冲突时以它为准；觉得原文不合理就改 adaptation，并写理由。
-- **TODO**：独立审片者（另起子代理冷看成片，不给制作说明）还没做，用户决定后续再考虑；现在由模型按 taste.md 评审表自评。
+- **冷看**（2026-10-27）：`vw critic <片>` 只打包观众看得到、听得到的东西，由做片的模型另起一个**不带上下文**的子代理按 `out/<片>/critic/PROMPT.md` 审片、写 `out/<片>/critic.md`；`vw review` 把它复述的一句话和信息表结论并排。模型自评（taste.md 评审表）照旧，两者都写进决策单。
 
 ## 11. 相关文档
 

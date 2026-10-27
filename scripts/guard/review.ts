@@ -1,9 +1,11 @@
-import { execFileSync, spawnSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { getFilm } from '../../src/films.js';
 import { TruthManager } from '../spot/truth.js';
 import { camelotTonic } from '../../src/shared/beats.js';
+import { buildTimeWarp } from '../../src/shared/timewarp.js';
+import { audioRmsLevels, climaxesOf, energyCurve, energyReview, perSecond, shotReview } from './structure.js';
 
 /**
  * 导演自检（vw review <片>）：出片后由模型自己跑，对照导演决策单逐项给出提示。
@@ -17,6 +19,7 @@ import { camelotTonic } from '../../src/shared/beats.js';
  *   6. 外部素材许可证：计划里用到的 freesound / kenney 文件，manifest 里必须记着 CC0 许可证和来源页
  *   7. 设计评审（docs/method/taste.md）：六维各 1–10 分、低分项提醒、分数要配具体缺陷（自查，只提示）；
  *      出过片的话拼一张成片缩略图（out/<片>/sheet.png），模型看过再写评审
+ *   8. 结构（structure.ts）：能量曲线、高潮前有没有回落、镜头时长；冷看（critic.ts）的复述对不对得上结论
  */
 
 export interface ReviewItem {
@@ -351,8 +354,7 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
     let deepest: number | undefined;
     if (fs.existsSync(audio)) {
       // 每 0.1 秒一个 RMS（ffmpeg astats），交给 quietRuns 找「比全片中位数低 12 dB 以上、持续 ≥ 0.3s」的段
-      const r = spawnSync('ffmpeg', ['-nostdin', '-hide_banner', '-i', audio, '-af', 'asetnsamples=4800,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level', '-f', 'null', '-'], { encoding: 'utf-8', maxBuffer: 1 << 26 });
-      const levels = [...String(r.stderr).matchAll(/RMS_level=(-?[\d.]+|-inf)/g)].map((m) => (m[1] === '-inf' ? -120 : Number(m[1])));
+      const levels = audioRmsLevels(audio, 0.1);
       const q = quietRuns(levels, 0.1);
       silences = q.runs.filter(([a, b]) => a > 0.5 && b < levels.length * 0.1 - 0.5);
       deepest = q.deepestBelowMedian;
@@ -457,6 +459,18 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
         ? { level: 'hint', topic: '画面', text: `最长静止 ${gap.toFixed(1)}s（${at.toFixed(1)}s 起）—— 是有意停住读字吗？可以加缓推 / 光点流动` }
         : { level: 'ok', topic: '画面', text: `最长静止 ${gap.toFixed(1)}s；静止 ${(m.bands.still * 100).toFixed(0)}% / 细微 ${(m.bands.subtle * 100).toFixed(0)}%` }
     );
+    // 结构：能量曲线（画面运动 + 音轨响度，每秒一格）、高潮前有没有回落、镜头时长；高潮从乐谱秒换到放映秒
+    const audio = path.join(root, 'out', filmId, 'audio.wav');
+    const loud = fs.existsSync(audio) ? perSecond(audioRmsLevels(audio, 0.1), 10) : [];
+    const motion = m.series ? perSecond(m.series.diffs, m.series.hz) : [];
+    const warp = buildTimeWarp(truth.sync);
+    items.push(...energyReview(energyCurve(motion, loud), climaxesOf(truth.music).map((c) => warp.toFilm(c))));
+    items.push(...shotReview(m.cuts, m.durationSec));
+    // 冷看（vw critic + 不带上下文的子代理）：复述的一句话对不对得上信息表的结论
+    const { criticReview, readCritic } = await import('./critic.js');
+    const { parseBriefTable } = await import('./brief.js');
+    const concl = parseBriefTable(dText ?? '').find((r) => r.level === '结论')?.point;
+    items.push(...criticReview(readCritic(root, filmId), concl, fs.statSync(final).mtimeMs, filmId));
   } else {
     items.push({ level: 'hint', topic: '画面', text: '还没有成片，画面相关的提示要出片后再看' });
   }
