@@ -1,0 +1,65 @@
+{
+ "grammar": "y1_kurzgesagt",
+ "duration": 10.0,
+ "pace": 1.0,
+ "fps": 30,
+ "data": {
+  "center": "大模型",
+  "flow": false,
+  "planetColor": "#F48301"
+ },
+ "cues": [
+  {
+   "at": 0.0,
+   "kind": "title",
+   "text": "一个大模型里面有什么？"
+  },
+  {
+   "at": 1.4,
+   "kind": "point",
+   "word": "参数",
+   "text": "几千亿个参数"
+  },
+  {
+   "at": 2.3,
+   "kind": "point",
+   "word": "网络",
+   "text": "几十层网络"
+  },
+  {
+   "at": 3.2,
+   "kind": "point",
+   "word": "词表",
+   "text": "一张词表"
+  },
+  {
+   "at": 4.2,
+   "kind": "enter",
+   "word": "其中一层",
+   "text": "其中一层",
+   "data": {
+    "index": 1
+   }
+  },
+  {
+   "at": 6.2,
+   "kind": "point",
+   "word": "注意力",
+   "text": "注意力"
+  },
+  {
+   "at": 7.0,
+   "kind": "point",
+   "word": "前馈",
+   "text": "前馈网络"
+  },
+  {
+   "at": 8.0,
+   "kind": "highlight",
+   "word": "最关键",
+   "data": {
+    "index": 0
+   }
+  }
+ ]
+}

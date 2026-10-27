@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "正片主配乐",
+      "in": {
+        "ref": "SC.start",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 30
+      },
+      "climax": {
+        "ref": "K.logoSet",
+        "sec": 26.55
+      },
+      "climax2": {
+        "ref": "K.scatter",
+        "sec": 11.8
+      },
+      "brief": "按影片简报检索；主高潮钉在 P0 拍点",
+      "startFromSec": 0,
+      "volume": 0.55,
+      "fadeInSec": 1,
+      "fadeOutSec": 2,
+      "track": {
+        "id": "us-paper-c1",
+        "title": "本地合成配乐",
+        "artist": "Local ABC Composer",
+        "bpm": 151.43,
+        "key": "8B",
+        "file": "music/us-paper-c1.wav",
+        "durationSec": 30,
+        "adapted": false,
+        "surgeryApplied": false
+      }
+    }
+  ]
+}

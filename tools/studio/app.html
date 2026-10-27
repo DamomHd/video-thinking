@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视频工作台</title>
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <span>视频工作台</span>
+      <select id="filmSelect" title="切换片子"></select>
+    </div>
+    <div class="header-ctrls">
+      <span class="badge" id="syncBadge" title="对拍：锁定的拍点 / 总数 · 最大偏差">对拍 —</span>
+      <span class="badge" id="warpBadge" hidden></span>
+      <span class="badge" id="engineBadge" hidden></span>
+      <span class="badge" id="verBadge" title="最近一次存的版本，以及之后有没有改动">版本 —</span>
+      <button class="btn" id="syncChoreoBtn" title="编舞改了之后：比对音效清单、补新槽、迁移调参、重新对拍">同步编舞</button>
+      <button class="btn" id="abBtn" title="切换听：当前混音 / 不拉伸（音效回到乐谱位置）">对比试听</button>
+      <button class="btn" id="saveVerBtn" title="把九张真值存成一个可回退的版本">存版本</button>
+    </div>
+  </header>
+
+  <div class="workbench">
+    <div class="stage">
+      <div class="video-viewport" id="viewport">
+        <video id="videoEl" preload="auto" muted playsinline></video>
+        <div class="video-msg" id="videoMsg">点画面任意位置打点、写批注</div>
+      </div>
+      <div class="timeline" id="timeline">
+        <div class="ruler-head">拍点 · 放映时间</div>
+        <div class="ruler" id="ruler"><div class="playhead" id="playhead" style="left:0"></div></div>
+        <div id="lanes"></div>
+      </div>
+      <div class="transport">
+        <div class="tp-group">
+          <button class="btn icon" id="undoTopBtn" title="撤销（⌘Z）">↶</button>
+          <button class="btn icon" id="redoBtn" title="重做（⇧⌘Z）">↷</button>
+        </div>
+        <div class="tp-group tp-main">
+          <button class="btn icon" id="prevBtn" title="跳到上一个拍点 / 幕起点（[）">⏮</button>
+          <button class="btn icon primary" id="playBtn" title="播放 / 暂停（空格）">▶</button>
+          <button class="btn icon" id="nextBtn" title="跳到下一个拍点 / 幕起点（]）">⏭</button>
+          <div class="timecode" id="timecode">00:00.00 / 00:00.00</div>
+        </div>
+        <div class="tp-group">
+          <span class="k">缩放</span>
+          <input type="range" id="zoomRange" min="1" max="16" step="0.25" value="1" title="时间轴缩放（⌘ + 滚轮）" />
+          <button class="btn" id="fitBtn" title="整片放进一屏">适配</button>
+          <select id="speedSel" title="播放速度（声音会跟着变调）">
+            <option value="0.5">0.5 倍速</option>
+            <option value="0.75">0.75 倍速</option>
+            <option value="1" selected>1 倍速</option>
+            <option value="1.25">1.25 倍速</option>
+            <option value="1.5">1.5 倍速</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="inspector">
+      <div class="scroll">
+
+        <!-- 没选中：这部片的概况 + 怎么操作 -->
+        <section class="ctx" id="ctxNone">
+          <div class="ctx-title">这部片</div>
+          <div class="stats" id="filmSummary"></div>
+          <ul class="tips">
+            <li>点片段：看参数、换素材</li>
+            <li>拖标尺：看任意一帧</li>
+            <li><kbd>空格</kbd> 播放 · <kbd>←</kbd><kbd>→</kbd> 逐帧</li>
+          </ul>
+          <details class="fold">
+            <summary>全部快捷键</summary>
+            <div class="keys">
+              <span><kbd>,</kbd><kbd>.</kbd></span><span>选中的片段逐帧挪</span>
+              <span><kbd>⇧</kbd><kbd>←</kbd><kbd>→</kbd></span><span>前后一秒</span>
+              <span><kbd>[</kbd><kbd>]</kbd></span><span>上 / 下一个拍点</span>
+              <span><kbd>⌘Z</kbd> <kbd>⇧⌘Z</kbd></span><span>撤销 / 重做</span>
+              <span><kbd>⌘B</kbd></span><span>在播放头拆开配乐</span>
+              <span><kbd>⌘</kbd> + 滚轮</span><span>缩放时间轴</span>
+              <span><kbd>Esc</kbd></span><span>取消选中</span>
+            </div>
+          </details>
+        </section>
+
+        <!-- 选中音效 -->
+        <section class="ctx" id="ctxSfx" hidden>
+          <div class="ctx-title" id="clipKey"></div>
+          <div class="ctx-sub" id="clipTitle"></div>
+          <div class="pair">
+            <div><span class="k">起点</span><span class="v" id="clipFrom"></span></div>
+            <div><span class="k">挪动</span><span class="v" id="clipOffset"></span></div>
+          </div>
+          <div class="slider-row"><span class="k">增益</span><input type="range" id="clipGain" min="-24" max="12" step="0.5" /><span class="v" id="clipGainTxt"></span></div>
+          <div class="slider-row"><span class="k">淡入</span><input type="range" id="clipFadeIn" min="0" max="1.5" step="0.01" /><span class="v" id="clipFadeInTxt"></span></div>
+          <div class="slider-row"><span class="k">淡出</span><input type="range" id="clipFadeOut" min="0" max="1.5" step="0.01" /><span class="v" id="clipFadeOutTxt"></span></div>
+          <button class="btn primary wide" id="candBtn">换素材</button>
+          <div class="btn-row">
+            <button class="btn" id="duckBtn" title="这一声响的时候，配乐压低 5 dB">压低配乐</button>
+            <button class="btn" id="undoBtn" title="⌘Z">撤销</button>
+          </div>
+
+          <div id="candSec" class="sub-panel" hidden>
+            <div class="sub-title">候选 · <span id="candSlot"></span></div>
+            <div class="cand-list" id="candList"></div>
+            <div class="btn-row">
+              <button class="btn" id="candSimilarBtn" title="以当前这条为种子找相似的">找相似</button>
+              <button class="btn" id="candMoreBtn" title="同一组检索词再搜一批">再搜一批</button>
+            </div>
+            <div class="hint" id="candHint">换了会自动存版本，能退回。</div>
+          </div>
+        </section>
+
+        <!-- 选中口播 -->
+        <section class="ctx" id="ctxVo" hidden>
+          <div class="ctx-title" id="voTitle"></div>
+          <div class="quote" id="voText"></div>
+          <div class="pair">
+            <div><span class="k">起点</span><span class="v" id="voFrom"></span></div>
+            <div><span class="k">时长</span><span class="v" id="voDur"></span></div>
+          </div>
+          <div class="hint" id="voCheck"></div>
+        </section>
+
+        <!-- 选中配乐段 -->
+        <section class="ctx" id="ctxCue" hidden>
+          <div class="ctx-title" id="cueId"></div>
+          <div class="ctx-sub" id="cueTrackLine"></div>
+          <div class="pair">
+            <div><span class="k">区间</span><span class="v" id="cueRange"></span></div>
+          </div>
+          <div class="slider-row"><span class="k">音量</span><input type="range" id="cueVol" min="0" max="1" step="0.01" /><span class="v" id="cueVolTxt"></span></div>
+          <div class="slider-row two">
+            <span class="k">接下一段</span>
+            <select id="cueJoin">
+              <option value="cut">紧贴</option>
+              <option value="gap">留白</option>
+              <option value="crossfade">交叉淡化</option>
+              <option value="bridge">音效桥</option>
+            </select>
+          </div>
+          <div class="btn-row three">
+            <button class="btn" id="splitBtn" title="在播放头把这一段拆成两段（⌘B）">拆开</button>
+            <button class="btn" id="solveBtn" title="按拍点重新求解画面拉伸">重新对拍</button>
+            <button class="btn" id="clearSyncBtn" title="画面和声音都回到乐谱时间">取消拉伸</button>
+          </div>
+
+          <details class="fold" id="syncFold">
+            <summary>对拍 <span class="v" id="anchorStat">—</span></summary>
+            <div class="pair"><div><span class="k">得分</span><span class="v" id="scoreSync">—</span></div></div>
+            <div class="list" id="anchorList"></div>
+          </details>
+
+          <details class="fold" id="librarySec">
+            <summary>换曲</summary>
+            <div class="btn-row grow-first">
+              <input id="musicQ" type="text" placeholder="检索词（空着用这一段的描述）" />
+              <button class="btn" id="musicSearchBtn">搜</button>
+            </div>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" id="optGridFit" checked /> 按拍点选速度</label>
+              <label class="chk"><input type="checkbox" id="optContinuity" /> 接续上一段</label>
+              <label class="chk"><input type="checkbox" id="optAutoPrepare" /> 搜完就预改编</label>
+              <label class="chk">每次 <input type="number" id="optLimit" min="4" max="30" value="12" /> 首</label>
+            </div>
+            <div class="list" id="musicCands"></div>
+            <div class="btn-row">
+              <button class="btn" id="musicSimilarBtn">找相似</button>
+              <button class="btn" id="musicRemoveBtn">解绑本段</button>
+            </div>
+            <div class="hint" id="musicLibHint">选中一条后，可以预改编或直接改编。</div>
+          </details>
+
+          <details class="fold" id="adaptSec">
+            <summary>改编</summary>
+            <div class="pair"><div><span class="k">曲目</span><span class="v" id="adaptTrack" title="">—</span></div></div>
+            <div class="pair"><div><span class="k">预改编</span><span class="v" id="adaptPrepared">—</span></div></div>
+            <div class="slider-row two"><span class="k">高潮落点</span><input type="number" id="adaptDrop" step="0.1" placeholder="段内第几秒" /></div>
+            <div class="slider-row two"><span class="k">第二高潮</span><input type="number" id="adaptDrop2" step="0.1" placeholder="尽量靠近，可空" /></div>
+            <div class="slider-row two">
+              <span class="k">比选</span>
+              <select id="adaptPool">
+                <option value="1">只出一版</option>
+                <option value="3">比 3 个配方</option>
+                <option value="6" selected>比 6 个配方</option>
+              </select>
+            </div>
+            <div class="sub-title">段落偏好</div>
+            <div class="btn-row three">
+              <button class="btn" id="prefLoadBtn">载入原曲</button>
+              <select id="prefMode">
+                <option value="more">多用</option>
+                <option value="less">少用</option>
+              </select>
+              <button class="btn" id="prefClearBtn">清空</button>
+            </div>
+            <canvas id="prefCanvas" width="640" height="150"></canvas>
+            <div class="hint" id="prefHint">在波形上拖选一段（吸附小节头）；点已有的段删掉。</div>
+            <button class="btn primary wide" id="adaptBtn">改编本段</button>
+            <div class="btn-row">
+              <button class="btn" id="prepareBtn">排队预改编</button>
+              <button class="btn" id="fullBtn">用原曲整首</button>
+            </div>
+            <div class="list" id="recipeList"></div>
+            <div class="hint" id="adaptHint">改编 1–3 分钟，在后台跑。</div>
+          </details>
+        </section>
+
+        <!-- 常驻：批注、后台作业（都收起） -->
+        <details class="fold" id="inboxFold">
+          <summary>批注 <span class="v" id="inboxCount"></span></summary>
+          <textarea id="inboxText" placeholder="要改什么？会记在当前播放位置"></textarea>
+          <button class="btn primary wide" id="inboxBtn">提交批注</button>
+          <div class="list" id="inboxList"></div>
+        </details>
+        <details class="fold" id="jobsSec" hidden>
+          <summary>后台作业 <span class="v" id="jobCount"></span></summary>
+          <div class="list" id="jobList"></div>
+        </details>
+      </div>
+
+      <div class="bus">
+        <div class="bus-head"><span>总线</span><span class="v" id="peakHold">峰值 —</span></div>
+        <canvas id="busMeter" width="560" height="36"></canvas>
+        <div class="bus-scale"><span>−60</span><span>−24</span><span>−12</span><span>−6</span><span>0</span></div>
+        <div class="slider-row"><span class="k">音量</span><input type="range" id="masterFader" min="-24" max="6" step="0.5" value="0" title="双击回 0 dB" /><span class="v" id="masterTxt">0.0 dB</span></div>
+        <div class="btn-row grow-first">
+          <button class="btn" id="measureBtn" title="按成片同一套增益离线混一遍，测整体响度">测响度</button>
+          <span class="v small" id="lufsVal">—</span>
+        </div>
+        <div class="hint small" id="lufsDetail"><span id="peakVal"></span> <span id="lufsDelta"></span></div>
+        <div class="meter" hidden><i id="meterBar"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

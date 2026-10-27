@@ -1,0 +1,114 @@
+{
+  "entries": [
+    {
+      "film": "anlan-brief",
+      "label": "v1",
+      "file": "archive/anlan-brief/v1.mp4",
+      "durationSec": 45,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "8be5a99e9d33",
+      "savedAt": "2026-10-26T03:14:57.185Z"
+    },
+    {
+      "film": "anlan-brief",
+      "label": "v3",
+      "file": "archive/anlan-brief/v3.mp4",
+      "durationSec": 45,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "6f4281e4f29e",
+      "savedAt": "2026-10-26T03:56:01.303Z"
+    },
+    {
+      "film": "anlan-brief",
+      "label": "v4",
+      "file": "archive/anlan-brief/v4.mp4",
+      "durationSec": 45,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "57a0ec2fa22a",
+      "savedAt": "2026-10-26T04:27:50.157Z"
+    },
+    {
+      "film": "anlan-film",
+      "label": "v1",
+      "file": "archive/anlan-film/v1.mp4",
+      "durationSec": 45,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "5c8558ab1e73",
+      "savedAt": "2026-10-26T07:18:59.217Z"
+    },
+    {
+      "film": "anlan-film",
+      "label": "v2",
+      "file": "archive/anlan-film/v2.mp4",
+      "durationSec": 45,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "ff8aea496dec",
+      "savedAt": "2026-10-26T07:24:53.838Z"
+    },
+    {
+      "film": "anlan-exec",
+      "label": "v1",
+      "file": "archive/anlan-exec/v1.mp4",
+      "durationSec": 30,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "3b140ca44c6a",
+      "savedAt": "2026-10-26T09:41:12.129Z"
+    },
+    {
+      "film": "anlan-exec",
+      "label": "v2",
+      "file": "archive/anlan-exec/v2.mp4",
+      "durationSec": 30,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "29d6bbd67a5b",
+      "savedAt": "2026-10-26T09:44:12.915Z"
+    },
+    {
+      "film": "anlan-exec",
+      "label": "v3",
+      "file": "archive/anlan-exec/v3.mp4",
+      "durationSec": 30,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "d7e8b28e42e0",
+      "savedAt": "2026-10-26T12:19:45.398Z"
+    },
+    {
+      "film": "anlan-exec",
+      "label": "v4",
+      "file": "archive/anlan-exec/v4.mp4",
+      "durationSec": 30,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "b0be8da15198",
+      "savedAt": "2026-10-26T14:40:39.493Z"
+    },
+    {
+      "film": "anlan-exec",
+      "label": "v5",
+      "file": "archive/anlan-exec/v5.mp4",
+      "durationSec": 30,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "9bd07a2c5b28",
+      "savedAt": "2026-10-26T15:50:52.200Z"
+    }
+  ]
+}

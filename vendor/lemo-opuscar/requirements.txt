@@ -1,0 +1,13 @@
+# 本工程的 Python 依赖（.venv，Python 3.11；kokoro-onnx 要求 3.11–3.13）。锁精确版本，只用发布满两周的版本（2026-10-26 选定）。
+# 安装：vw py setup（建 .venv 并按本文件安装）。上游的分层 requirements*.txt 见 lemo-opuscar 仓库。
+# 配乐：采样器 / 拨弦物理建模 / 程序化音效
+numpy==2.4.6
+scipy==1.17.1
+soundfile==0.14.0
+soxr==1.1.0
+# 配音：Kokoro 离线 TTS、edge-tts（微软神经网络声音，需联网）、faster-whisper 转写核对
+kokoro-onnx==0.6.1
+onnxruntime==1.23.2  # Intel Mac（x86_64）上 onnxruntime 的最后一个 wheel
+edge-tts==7.3.1  # 2026-10-26 用户同意例外提前升级（发布 13 天）：7.2.8 连微软服务被 403
+faster-whisper==1.2.1
+av==18.1.0

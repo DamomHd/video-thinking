@@ -1,0 +1,30 @@
+{
+  "source": "phone.blend",
+  "glb": "phone.glb",
+  "units": "blend",
+  "axes": "three (y up)",
+  "objects": {
+    "Phone": {
+      "min": [
+        -36.8,
+        -73.35,
+        -3.825
+      ],
+      "max": [
+        36.8,
+        73.35,
+        3.86
+      ],
+      "size": [
+        73.6,
+        146.7,
+        7.685
+      ],
+      "center": [
+        0.0,
+        0.0,
+        0.0175
+      ]
+    }
+  }
+}

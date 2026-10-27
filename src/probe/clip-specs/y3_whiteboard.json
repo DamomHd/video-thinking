@@ -1,0 +1,76 @@
+{
+ "grammar": "y3_whiteboard",
+ "duration": 10.0,
+ "pace": 1.0,
+ "fps": 30,
+ "data": {
+  "accent": "#EF7226"
+ },
+ "cues": [
+  {
+   "at": 0.0,
+   "kind": "title",
+   "text": "AI 为什么会一本正经地胡说"
+  },
+  {
+   "at": 1.9,
+   "kind": "point",
+   "word": "海量",
+   "offset": 0.5,
+   "text": "它读过海量的文字"
+  },
+  {
+   "at": 2.8,
+   "kind": "draw",
+   "word": "文字",
+   "offset": 0.5,
+   "text": "海量文本",
+   "data": {
+    "icon": "stack"
+   }
+  },
+  {
+   "at": 3.9,
+   "kind": "point",
+   "word": "学会",
+   "offset": 0.5,
+   "text": "学会的是下一个词最像什么"
+  },
+  {
+   "at": 4.9,
+   "kind": "draw",
+   "word": "下一个词",
+   "offset": 0.5,
+   "text": "猜下一个词",
+   "data": {
+    "icon": "network"
+   }
+  },
+  {
+   "at": 6.0,
+   "kind": "point",
+   "word": "没人教",
+   "offset": 0.5,
+   "text": "没人教过它说「不知道」"
+  },
+  {
+   "at": 6.9,
+   "kind": "draw",
+   "word": "不知道",
+   "offset": 0.5,
+   "text": "照样作答",
+   "data": {
+    "icon": "chat"
+   }
+  },
+  {
+   "at": 8.0,
+   "kind": "highlight",
+   "word": "照样",
+   "data": {
+    "index": 2,
+    "style": "circle"
+   }
+  }
+ ]
+}

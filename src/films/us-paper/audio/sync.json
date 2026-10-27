@@ -1,0 +1,100 @@
+{
+  "knots": [
+    [
+      0,
+      0
+    ],
+    [
+      2.4,
+      2.2333
+    ],
+    [
+      5.15,
+      5.1167
+    ],
+    [
+      11.8,
+      12.1333
+    ],
+    [
+      13.7,
+      14
+    ],
+    [
+      16.7,
+      16.6
+    ],
+    [
+      17,
+      16.9
+    ],
+    [
+      18.3,
+      18.2
+    ],
+    [
+      25.75,
+      25.5833
+    ],
+    [
+      26.55,
+      26.3833
+    ],
+    [
+      30,
+      29.8333
+    ]
+  ],
+  "anchors": [
+    {
+      "hit": "K.firstMark",
+      "cueId": "c1",
+      "targetSec": 2.4,
+      "musicSec": 2.219,
+      "musicKind": "beat",
+      "errMs": -14,
+      "priority": "P2",
+      "status": "locked",
+      "note": "第一个记录点落在轴上"
+    },
+    {
+      "hit": "K.scatter",
+      "cueId": "c1",
+      "targetSec": 11.8,
+      "musicSec": 12.124,
+      "musicKind": "downbeat",
+      "errMs": -9,
+      "priority": "P1",
+      "status": "locked",
+      "note": "22 个散点开始落"
+    },
+    {
+      "hit": "K.barsGrow",
+      "cueId": "c1",
+      "targetSec": 17,
+      "musicSec": 16.879,
+      "musicKind": "downbeat",
+      "errMs": -21,
+      "priority": "P1",
+      "status": "locked",
+      "note": "频率柱生长"
+    },
+    {
+      "hit": "K.logoSet",
+      "cueId": "c1",
+      "targetSec": 26.55,
+      "musicSec": 26.388,
+      "musicKind": "downbeat",
+      "errMs": 5,
+      "priority": "P0",
+      "status": "downgraded",
+      "note": "Us 落版图章"
+    }
+  ],
+  "report": {
+    "scoreSync": 121.8,
+    "lockedCount": 3,
+    "downgradedCount": 1,
+    "droppedCount": 0
+  }
+}

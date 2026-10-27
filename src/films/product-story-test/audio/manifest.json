@@ -1,0 +1,101 @@
+{
+  "psRoom": [
+    {
+      "file": "sfx-lib/epidemic/psRoom.wav",
+      "title": "psRoom（本地合成 · BG）",
+      "id": "local:psRoom",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 6.6012,
+      "peakDb": -9.16
+    }
+  ],
+  "psLand": [
+    {
+      "file": "sfx-lib/epidemic/psLand.wav",
+      "title": "psLand（本地合成 · UI）",
+      "id": "local:psLand",
+      "durSec": 0.7,
+      "onsetSec": 0,
+      "peakAtSec": 0.0043,
+      "peakDb": -2.77
+    }
+  ],
+  "psTick": [
+    {
+      "file": "sfx-lib/epidemic/psTick.wav",
+      "title": "psTick（本地合成 · UI）",
+      "id": "local:psTick",
+      "durSec": 0.08,
+      "onsetSec": 0,
+      "peakAtSec": 0.0001,
+      "peakDb": -4.44
+    }
+  ],
+  "psAir": [
+    {
+      "file": "sfx-lib/epidemic/psAir.wav",
+      "title": "psAir（本地合成 · WHOOSH）",
+      "id": "local:psAir",
+      "durSec": 0.35,
+      "onsetSec": 0.003,
+      "peakAtSec": 0.2042,
+      "peakDb": -8.58
+    }
+  ],
+  "psSlide": [
+    {
+      "file": "sfx-lib/epidemic/psSlide.wav",
+      "title": "psSlide（本地合成 · WHOOSH）",
+      "id": "local:psSlide",
+      "durSec": 0.6,
+      "onsetSec": 0.004,
+      "peakAtSec": 0.2791,
+      "peakDb": -6.33
+    }
+  ],
+  "psSwell": [
+    {
+      "file": "sfx-lib/epidemic/psSwell.wav",
+      "title": "psSwell（本地合成 · RISER）",
+      "id": "local:psSwell",
+      "durSec": 0.9,
+      "onsetSec": 0.008,
+      "peakAtSec": 0.487,
+      "peakDb": -6.21
+    }
+  ],
+  "psStamp": [
+    {
+      "file": "sfx-lib/epidemic/psStamp.wav",
+      "title": "psStamp（本地合成 · IMPACT）",
+      "id": "local:psStamp",
+      "durSec": 0.6,
+      "onsetSec": 0,
+      "peakAtSec": 0.0025,
+      "peakDb": -1.94
+    }
+  ],
+  "psHero": [
+    {
+      "file": "sfx-lib/epidemic/psHero.wav",
+      "title": "psHero（本地合成 · IMPACT）",
+      "id": "local:psHero",
+      "durSec": 2.4,
+      "onsetSec": 0,
+      "peakAtSec": 0.0194,
+      "peakDb": -0.93
+    }
+  ],
+  "psPre": [
+    {
+      "file": "sfx-lib/epidemic/psPre.wav",
+      "title": "psPre（本地合成 · RISER）",
+      "id": "local:psPre",
+      "durSec": 0.7,
+      "onsetSec": 0,
+      "peakAtSec": 0.6628,
+      "peakDb": -5.77
+    }
+  ]
+}

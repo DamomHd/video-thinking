@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "正片主配乐",
+      "in": {
+        "ref": "SC.open",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 29.5
+      },
+      "climax": {
+        "ref": "K.final",
+        "sec": 26.9
+      },
+      "climax2": {
+        "ref": "K.ignite",
+        "sec": 16.9
+      },
+      "brief": "室内乐采样：钢琴、竖琴、拨弦、轻弦，安静温和；暗场一亮是第二高潮，片尾落定是主高潮",
+      "startFromSec": 0,
+      "volume": 0.8,
+      "fadeInSec": 1,
+      "fadeOutSec": 2,
+      "track": {
+        "id": "product-story-test-c1-chamber",
+        "title": "本地作曲 · 真实乐器采样（chamber）",
+        "artist": "Local Composer + lemo-opuscar sampler",
+        "source": "local-sampled",
+        "license": "Samples (CC0): VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios)",
+        "url": "https://github.com/lemomo-ai/lemo-opuscar",
+        "bpm": 98.12,
+        "key": "8B",
+        "file": "music/product-story-test-c1.wav",
+        "durationSec": 29.5,
+        "adapted": false,
+        "surgeryApplied": false
+      }
+    }
+  ]
+}

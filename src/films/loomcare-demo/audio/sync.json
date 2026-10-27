@@ -1,0 +1,66 @@
+{
+  "knots": [
+    [
+      0,
+      0
+    ],
+    [
+      12.6,
+      12.6
+    ],
+    [
+      24.35,
+      24.35
+    ],
+    [
+      28.25,
+      28.25
+    ],
+    [
+      28.65,
+      28.65
+    ],
+    [
+      98.6,
+      98.6
+    ],
+    [
+      122.1,
+      122.1
+    ],
+    [
+      200.55,
+      200.55
+    ]
+  ],
+  "anchors": [
+    {
+      "hit": "K.ink",
+      "cueId": "c1",
+      "targetSec": 12.6,
+      "musicSec": 12.6,
+      "musicKind": "beat",
+      "errMs": 0,
+      "priority": "P0",
+      "status": "dropped",
+      "note": "网格不可行（两侧刚性，一帧不能动）"
+    },
+    {
+      "hit": "K.chipPop",
+      "cueId": "c1",
+      "targetSec": 28.65,
+      "musicSec": 28.65,
+      "musicKind": "beat",
+      "errMs": 0,
+      "priority": "P1",
+      "status": "dropped",
+      "note": "网格不可行（两侧刚性，一帧不能动）"
+    }
+  ],
+  "report": {
+    "scoreSync": -30,
+    "lockedCount": 0,
+    "downgradedCount": 0,
+    "droppedCount": 2
+  }
+}

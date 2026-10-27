@@ -1,0 +1,57 @@
+{
+  "paperRoom": [
+    {
+      "file": "sfx-lib/epidemic/paperRoom.wav",
+      "title": "Ambience, Room Tone, Very Quiet, Cellar Storage Unit C",
+      "id": "ccb25123-1911-455f-9358-0ed62e23778b",
+      "durSec": 10.4235,
+      "onsetSec": 0.049,
+      "peakAtSec": 5.7722,
+      "peakDb": -12.23
+    }
+  ],
+  "penStroke": [
+    {
+      "file": "sfx-lib/epidemic/penStroke.wav",
+      "title": "Objects, Writing, Pencil On Paper, Stroke",
+      "id": "839c9b27-b431-4ee3-aa2a-7d4abb310d4b",
+      "durSec": 0.8829,
+      "onsetSec": 0,
+      "peakAtSec": 0.0002,
+      "peakDb": -10.79
+    }
+  ],
+  "stampTick": [
+    {
+      "file": "sfx-lib/epidemic/stampTick.wav",
+      "title": "Mechanical, Click, Heater Fan, Small, Thermostat, Click On Or Off",
+      "id": "1f6638b9-84fa-4d28-882f-b7e5dddcbdc0",
+      "durSec": 0.2762,
+      "onsetSec": 0,
+      "peakAtSec": 0.0013,
+      "peakDb": -4.67
+    }
+  ],
+  "pageTurn": [
+    {
+      "file": "sfx-lib/epidemic/pageTurn.wav",
+      "title": "Paper, Handle, Sheet, Laminated, Turn Over, Flip On Wooden Table",
+      "id": "6d7b63ae-bdf6-43f4-a358-4383064d34bf",
+      "durSec": 0.7676,
+      "onsetSec": 0.018,
+      "peakAtSec": 0.3575,
+      "peakDb": -12.47
+    }
+  ],
+  "setMark": [
+    {
+      "file": "sfx-lib/epidemic/setMark.wav",
+      "title": "Wood, Impact, Wood Floor, Fist Hit, Thud 01",
+      "id": "8550de9e-d796-4b67-8629-bca43ca2be39",
+      "durSec": 1.5491,
+      "onsetSec": 0,
+      "peakAtSec": 0.0501,
+      "peakDb": -4.74
+    }
+  ]
+}

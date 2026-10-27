@@ -1,0 +1,22 @@
+{
+  "_说明": "内容中性的示例：黏土静物 + 12 张/秒定格。复制这份改物体、材质预设、灯光预设就是新风格的起点",
+  "scale": 1,
+  "lighting": "softbox",
+  "world": "#EDE6DA",
+  "worldStrength": 0.7,
+  "fps": 24,
+  "durationSec": 2,
+  "stepped": { "fps": 12, "jitter": 0.012, "rotJitterDeg": 0.8, "seed": 3 },
+  "objects": [
+    { "name": "Ground", "prim": "plane", "size": [30, 30], "pos": [0, 0, 0], "material": { "preset": "paper", "color": "#E9DFCF" } },
+    { "name": "Block", "prim": "roundbox", "size": [2.2, 1.6, 2.2], "bevel": 0.45, "pos": [-1.6, 0.8, 0], "rot": [0, 18, 0],
+      "material": { "preset": "clay", "color": "#C8553D" },
+      "anim": [{ "t": 0, "rot": [0, 18, 0] }, { "t": 2, "rot": [0, 78, 0] }] },
+    { "name": "Ball", "prim": "sphere", "size": [1.6], "pos": [1.4, 0.8, 0.6], "material": { "preset": "clay", "color": "#3A6EA5" },
+      "anim": [{ "t": 0, "pos": [1.4, 0.8, 0.6] }, { "t": 1, "pos": [1.4, 1.6, 0.6] }, { "t": 2, "pos": [1.4, 0.8, 0.6] }] },
+    { "name": "Ring", "prim": "torus", "size": [1.8, 0.45], "pos": [0.2, 0.23, -1.8], "material": { "preset": "clay", "color": "#D9A441" } },
+    { "name": "Post", "prim": "cylinder", "size": [0.7, 2.2], "pos": [2.8, 1.1, -1.2], "material": { "preset": "ceramic", "color": "#F2EEE6" } }
+  ],
+  "camera": { "pos": [7, 5.5, 8.5], "look": [0.2, 0.6, -0.2], "fov": 30 },
+  "render": { "engine": "CYCLES", "samples": 64, "resolution": [1920, 1080] }
+}

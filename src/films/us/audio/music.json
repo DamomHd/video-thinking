@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "Us 30s 宣传片主题曲",
+      "in": {
+        "ref": "SC.open",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 30
+      },
+      "climax": {
+        "ref": "K.logoDrop",
+        "sec": 26.6
+      },
+      "brief": "warm ambient piano intimate gentle night",
+      "startFromSec": 0,
+      "volume": 0.65,
+      "fadeInSec": 0.8,
+      "fadeOutSec": 1.5,
+      "track": {
+        "id": "us-theme-main",
+        "title": "Us Ambient Love (Adapted)",
+        "artist": "Local ABC Composer",
+        "bpm": 149,
+        "key": "9B",
+        "file": "music/us-theme-main.wav",
+        "durationSec": 30,
+        "adapted": false
+      },
+      "climax2": {
+        "ref": "K.riverFlow",
+        "sec": 11.2
+      }
+    }
+  ]
+}

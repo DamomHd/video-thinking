@@ -1,0 +1,68 @@
+[
+  {
+    "key": "lcTitleWhoosh·片名大气转场",
+    "what": "片名文字墨染展开",
+    "layer": "WHOOSH",
+    "slot": "lcTitleWhoosh",
+    "file": "sfx-lib/epidemic/lcTitleWhoosh-1.wav",
+    "title": "lcTitleWhoosh（本地合成 · WHOOSH）",
+    "fromSec": 12.4,
+    "durSec": 0.8155,
+    "startFromSec": 0.021,
+    "volume": 0.8,
+    "fadeSec": 0.02
+  },
+  {
+    "key": "lcConnectPop·接入卡片滑入",
+    "what": "首屏接入数据源卡片滑入",
+    "layer": "UI",
+    "slot": "lcConnectPop",
+    "file": "sfx-lib/epidemic/lcConnectPop.wav",
+    "title": "lcConnectPop（本地合成 · UI）",
+    "fromSec": 19.8,
+    "durSec": 0.2441,
+    "startFromSec": 0,
+    "volume": 0.3428,
+    "fadeSec": 0.02
+  },
+  {
+    "key": "lcChipPop·芯片弹出",
+    "what": "入口芯片向上弹出",
+    "layer": "IMPACT",
+    "slot": "lcChipPop",
+    "file": "sfx-lib/epidemic/lcChipPop.wav",
+    "title": "lcChipPop（本地合成 · IMPACT）",
+    "fromSec": 28.65,
+    "durSec": 0.3681,
+    "startFromSec": 0,
+    "volume": 0.5823,
+    "fadeSec": 0.02
+  },
+  {
+    "key": "lcAwHeart·心跳两下",
+    "what": "手机机身亮起心跳律动",
+    "layer": "TEX",
+    "slot": "lcAwHeart",
+    "file": "sfx-lib/epidemic/lcAwHeart.wav",
+    "title": "lcAwHeart（本地合成 · TEX）",
+    "fromSec": 101.8,
+    "durSec": 1.6,
+    "startFromSec": 0,
+    "volume": 0.384,
+    "fadeSec": 0.667,
+    "loop": true
+  },
+  {
+    "key": "lcRingSpin·底座收束旋转",
+    "what": "底座光环收束",
+    "layer": "RISER",
+    "slot": "lcRingSpin",
+    "file": "sfx-lib/epidemic/lcRingSpin.wav",
+    "title": "lcRingSpin（本地合成 · RISER）",
+    "fromSec": 188.0388,
+    "durSec": 1.7912,
+    "startFromSec": 0,
+    "volume": 0.8,
+    "fadeSec": 0.02
+  }
+]

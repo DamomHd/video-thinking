@@ -1,0 +1,51 @@
+# ───────────────────────── 凭据：绝不提交 ─────────────────────────
+.env
+.env.*
+!.env.example
+
+# ───────────────────────── 产物、缓存、本地环境 ─────────────────────────
+node_modules/
+out/
+dist-verify/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# ───────────────────────── 大媒体：只留在本机（可由命令重新生成的，或要另行备份的）─────────────────────────
+# 生成的配乐 / 音效 / 口播（vw music … / vw sfx … / vw voice film 重新生成）
+public/music/*.wav
+public/sfx-lib/**/*.wav
+public/voice/**/*.wav
+public/blender/
+# 封存的旧版本（vw archive save）和参考成片——大视频，GitHub 单文件上限 100MB
+public/archive/
+/*.mp4
+/*.mov
+
+# ───────────────────────── 业务资料与别的项目的素材：不属于视频工作台本身，只留在本机 ─────────────────────────
+# 根目录散落的文档 / 截图 / 压缩包（根目录没有任何需要进库的图片或办公文档）
+/*.png
+/*.jpg
+/*.jpeg
+/*.pdf
+/*.docx
+/*.xlsx
+/*.pptx
+/*.zip
+/Loom Care-*.html
+# 对标基准文档（第三方架构文档，AGENTS.md 里按章节引用；换机时自己拷）
+/architecture.html
+# 具体业务的片子（真实业务数据写在代码里）及其字体子集、分镜稿
+# 新增这类片子：在这里加一行。引擎按目录自动发现片子，所以没有它们其余部分照样编得过（shared/film-root.ts）
+/src/films/anlan-*/
+/public/fonts/*--anlan-*/
+/docs/anlan-*-storyboard.md
+# 业务参考片的分析与参考帧（来自业务视频 / 第三方成片；风格说明文字留在库里）
+/docs/library/exemplars/migration-report/
+/src/styles/blueprint/refs/
+/src/styles/product-story/refs/ref-*.jpg
+/src/styles/product-story/refs/demo.mp4
+# Us / LoomCare 等其他项目的 app 截图与抽帧（us 片渲染时要本机有）
+/public/app-shots/
+/sample-frames/

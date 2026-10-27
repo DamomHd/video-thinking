@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "正片主配乐 (科技温暖交响)",
+      "in": {
+        "ref": "SC.prologue",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 200.55
+      },
+      "climax": {
+        "ref": "K.ink",
+        "sec": 12.6
+      },
+      "brief": "科技温暖感，交响电子与脉冲心跳，逐渐推向片名主高潮",
+      "startFromSec": 0,
+      "volume": 0.55,
+      "fadeInSec": 1,
+      "fadeOutSec": 2,
+      "track": {
+        "id": "loomcare-theme-main",
+        "title": "LoomCare Anthem (Adapted)",
+        "artist": "Epidemic Sound Orchestral",
+        "bpm": 183.74,
+        "key": "8B",
+        "file": "music/loomcare-theme-main-adapt.wav",
+        "durationSec": 200.55,
+        "adapted": false,
+        "surgeryApplied": false
+      }
+    }
+  ]
+}

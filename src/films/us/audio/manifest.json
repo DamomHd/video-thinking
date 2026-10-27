@@ -1,0 +1,57 @@
+{
+  "usAtmosphere": [
+    {
+      "file": "sfx-lib/epidemic/usAtmosphere.wav",
+      "title": "usAtmosphere（本地合成）",
+      "id": "local:usAtmosphere",
+      "durSec": 9.2965,
+      "onsetSec": 0.035,
+      "peakAtSec": 4.2025,
+      "peakDb": -11.5
+    }
+  ],
+  "usGalaxyChime": [
+    {
+      "file": "sfx-lib/epidemic/usGalaxyChime.wav",
+      "title": "usGalaxyChime（本地合成）",
+      "id": "local:usGalaxyChime",
+      "durSec": 1.8735,
+      "onsetSec": 0,
+      "peakAtSec": 0.0039,
+      "peakDb": -10.82
+    }
+  ],
+  "usLockClick": [
+    {
+      "file": "sfx-lib/epidemic/usLockClick.wav",
+      "title": "usLockClick（本地合成）",
+      "id": "local:usLockClick",
+      "durSec": 0.2606,
+      "onsetSec": 0,
+      "peakAtSec": 0.0012,
+      "peakDb": -4.65
+    }
+  ],
+  "usRiserSweep": [
+    {
+      "file": "sfx-lib/epidemic/usRiserSweep.wav",
+      "title": "usRiserSweep（本地合成）",
+      "id": "local:usRiserSweep",
+      "durSec": 2.07,
+      "onsetSec": 0.141,
+      "peakAtSec": 2.069,
+      "peakDb": -10.16
+    }
+  ],
+  "usLogoHit": [
+    {
+      "file": "sfx-lib/epidemic/usLogoHit.wav",
+      "title": "usLogoHit（本地合成）",
+      "id": "local:usLogoHit",
+      "durSec": 2.4412,
+      "onsetSec": 0,
+      "peakAtSec": 0.0322,
+      "peakDb": -5.74
+    }
+  ]
+}

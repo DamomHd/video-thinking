@@ -1,0 +1,96 @@
+{
+  "knots": [
+    [
+      0,
+      0
+    ],
+    [
+      4.6,
+      4.5333
+    ],
+    [
+      7.8,
+      7.7333
+    ],
+    [
+      10.4,
+      10.2667
+    ],
+    [
+      11.2,
+      11.0667
+    ],
+    [
+      16.6,
+      16.3333
+    ],
+    [
+      18.4,
+      18.1
+    ],
+    [
+      21.8,
+      21.6
+    ],
+    [
+      26,
+      26.1667
+    ],
+    [
+      26.6,
+      26.7667
+    ],
+    [
+      30,
+      30.1667
+    ]
+  ],
+  "anchors": [
+    {
+      "hit": "K.tapRecord",
+      "cueId": "c1",
+      "targetSec": 7.8,
+      "musicSec": 7.726,
+      "musicKind": "beat",
+      "errMs": -7,
+      "priority": "P2",
+      "status": "locked"
+    },
+    {
+      "hit": "K.riverFlow",
+      "cueId": "c1",
+      "targetSec": 11.200000000000001,
+      "musicSec": 11.039,
+      "musicKind": "beat",
+      "errMs": -28,
+      "priority": "P1",
+      "status": "downgraded"
+    },
+    {
+      "hit": "K.chartGrow",
+      "cueId": "c1",
+      "targetSec": 18.400000000000002,
+      "musicSec": 18.078,
+      "musicKind": "beat",
+      "errMs": -22,
+      "priority": "P1",
+      "status": "downgraded"
+    },
+    {
+      "hit": "K.logoDrop",
+      "cueId": "c1",
+      "targetSec": 26.6,
+      "musicSec": 26.774,
+      "musicKind": "drop",
+      "errMs": 7,
+      "priority": "P0",
+      "status": "downgraded"
+    }
+  ],
+  "report": {
+    "scoreSync": 113.9,
+    "lockedCount": 1,
+    "downgradedCount": 3,
+    "droppedCount": 0
+  }
+}
