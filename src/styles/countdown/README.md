@@ -1,6 +1,6 @@
 # 实时倒计时分屏 · Live Countdown Split-screen
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：阿尔忒弥斯二号发射的最后一分钟，一秒不剪：格子从 1 开到 9，点火合成 1。（The last minute of the Artemis II launch, uncut: one cell opens to nine, and they merge into one at ignition.）
 

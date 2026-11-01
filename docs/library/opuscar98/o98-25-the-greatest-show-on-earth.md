@@ -1,6 +1,6 @@
 # Strobridge 马戏团彩色石印 · Strobridge Circus Lithograph
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 25 条（OPUSCAR 98 纪念片里《戏王之王》The Greatest Show on Earth（1952）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 25 条（OPUSCAR 98 纪念片里《戏王之王》The Greatest Show on Earth（1952）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：四色彩色石印 · Strobridge 马戏团海报 · 平涂油墨 + 粗黑轮廓（Four-ink chromolithograph · Strobridge Litho circus posters · Flat ink with heavy black outline）

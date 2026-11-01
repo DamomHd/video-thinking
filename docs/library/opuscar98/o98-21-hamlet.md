@@ -1,6 +1,6 @@
 # 黑白 3D 雾中城堡 · Deep-Focus Fog Castle, 3D B&W
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 21 条（OPUSCAR 98 纪念片里《王子复仇记》Hamlet（1948）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 21 条（OPUSCAR 98 纪念片里《王子复仇记》Hamlet（1948）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：3D（3D·B&W）　**手法组合**：three.js 3D + 体积雾 · Desmond Dickinson 深焦黑白 · Roger Furse 光秃的罗马式布景（three.js 3D with volumetric fog · Desmond Dickinson deep-focus black-and-white · Roger Furse bare Romanesque sets）

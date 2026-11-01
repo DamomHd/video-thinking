@@ -1,6 +1,6 @@
 # 立体书 · 真实书桌上的纸艺 · Sabuda Pop-up Book on a Real Desk
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 67 条（OPUSCAR 98 纪念片里《阿甘正传》Forrest Gump（1994）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 67 条（OPUSCAR 98 纪念片里《阿甘正传》Forrest Gump（1994）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2.5D（2.5D）　**手法组合**：Robert Sabuda 立体书结构 · 水彩、彩铅印刷质感 · three.js 纸卡 · 物理景深（Robert Sabuda pop-up engineering · Watercolour and coloured-pencil print · three.js paper cards · Physical depth of field）

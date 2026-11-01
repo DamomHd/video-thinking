@@ -1,6 +1,6 @@
 # 艾伦·李式水彩 + 托尔金地图 · Alan Lee Watercolour & Tolkien Map
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 76 条（OPUSCAR 98 纪念片里《指环王：王者无敌》The Lord of the Rings: The Return of the King（2003）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 76 条（OPUSCAR 98 纪念片里《指环王：王者无敌》The Lord of the Rings: The Return of the King（2003）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：水彩加铅笔的概念插画 · 托尔金式羊皮纸地图 · 艾伦·李与约翰·豪（Watercolour and pencil concept art · Tolkien-style parchment map · Alan Lee and John Howe）

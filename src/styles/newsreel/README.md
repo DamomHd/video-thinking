@@ -1,6 +1,6 @@
 # 1920s 新闻影片 · 1920s Newsreel
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：1926 年报纸说查尔斯顿会跳坏膝盖，福特工人野餐会上的孩子照跳不误。（1926: the papers say the Charleston will ruin America's knees; at Ford's own picnic the kids dance it anyway.）
 

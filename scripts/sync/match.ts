@@ -59,6 +59,7 @@ export async function matchMusicForFilm(
   console.log(`[vw music match] 配乐全链匹配: 影片=${filmId}`);
   console.log(`  - 改编路径: ${useFreesound ? 'Freesound CC0 配乐（按 brief 检索 → 剪辑钉高潮）' : useEpidemic ? 'Epidemic Adapt（真实接口）' : '本地 ABC 作曲引擎（离线自给）'}`);
   console.log(`========================================\n`);
+  if (!useFreesound && !useEpidemic) console.warn('  ! 本地作曲是一份通用模板（固定调性 / 和弦进行 / 段落 / 鼓型，只按速度、片长、高潮伸缩）——每部片会是同一首。缺省做法是为这部片写 audio/score.ts、跑 vw music score；用模板要在决策单「声音」里写明理由\n');
 
   const hits = adapter.hits();
   const totalSec = adapter.timeline.totalSeconds;

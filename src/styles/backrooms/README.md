@@ -1,6 +1,6 @@
 # 后室 / 新怪谈 · Liminal Found Footage
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：电影与时代（Cinema & Eras）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：电影与时代（Cinema & Eras）
 
 **一句话**：新夜班员工拍下入职第一晚：无尽的黄色办公空间，和墙上的员工守则。（A new night-shift hire films their first night in an endless yellow office, following the rules on the wall.）
 

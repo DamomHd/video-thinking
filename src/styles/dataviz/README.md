@@ -1,6 +1,6 @@
 # 数据叙事 · Data Storytelling
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：信息与发布（Information & Keynote）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：信息与发布（Information & Keynote）
 
 **一句话**：一百年的夏季气温，图表本身就是故事。（A hundred years of summer temperatures, where the chart itself tells the story.）
 

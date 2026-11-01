@@ -1,6 +1,6 @@
 # 16-bit 像素 RPG · 16-bit Pixel RPG
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：游戏（Games）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：游戏（Games）
 
 **一句话**：勇士在最终 Boss 门前存档，存档画面闪回一路冒险。（At the final boss door a hero saves the game, and the save screen replays the whole journey.）
 

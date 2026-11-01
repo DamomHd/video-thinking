@@ -1,6 +1,6 @@
 # 显微叙事 · Microscope Story
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：一镜从肝组织玻片推到单个细胞核，两个圆逐像素数出 2.4 倍的蓝。（One continuous move from a liver slide to a single nucleus; two circles, counted pixel by pixel, differ 2.4 times in blue.）
 

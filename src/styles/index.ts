@@ -2,7 +2,7 @@
  * 风格注册表：id → 风格包。vw style list / sheet 据此找风格。
  * 两个来源：
  *   · 自有风格：用户认可某部片的样子后用 vw style save 收进来（会自动在下面登记一行）
- *   · 收录的风格：lemo-opuscar 的 59 个完整风格（opuscar.ts，由 scripts/style/import-opuscar.ts 生成），约束在各自的 STYLE.md 里。
+ *   · 收录的风格：lemo-opuscar 的 66 个完整风格（opuscar.ts，由 scripts/style/import-opuscar.ts 生成），约束在各自的 STYLE.md 里。
  *     只有完整的风格才进库；OPUSCAR 98 的片段风格只作参考，在 docs/library/opuscar98/
  * 片子默认不选风格；选了某个风格，就按那个风格的 README / STYLE.md 做。
  */

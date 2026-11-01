@@ -1,6 +1,6 @@
 # 赫希菲尔德一笔画漫画 · Hirschfeld One-Line Caricature
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 23 条（OPUSCAR 98 纪念片里《彗星美人》All About Eve（1950）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 23 条（OPUSCAR 98 纪念片里《彗星美人》All About Eve（1950）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D·B&W）　**手法组合**：一笔墨线漫画 · Al Hirschfeld 剧场漫画 · 手写台词（Single-line ink caricature · Al Hirschfeld theatre drawings · Hand-lettered dialogue）

@@ -1,6 +1,6 @@
 # 高调海滩黑白银幕 · High-Key Beach Black-and-White
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 26 条（OPUSCAR 98 纪念片里《乱世忠魂》From Here to Eternity（1953）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 26 条（OPUSCAR 98 纪念片里《乱世忠魂》From Here to Eternity（1953）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D·B&W）　**手法组合**：1953 年高调黑白摄影 · Burnett Guffey · 银盐颗粒与光晕（1953 high-key black-and-white photography · Burnett Guffey · Silver grain and halation）

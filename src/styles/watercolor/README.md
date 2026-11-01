@@ -1,6 +1,6 @@
 # 水彩笔刷 · Watercolor Brush
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：手绘与绘画（Hand-drawn & Painting）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：手绘与绘画（Hand-drawn & Painting）
 
 **一句话**：跟着降雨从澳洲红色腹地一路画到绿色海岸，一镜到底。（Follow the rain from Australia's red desert heart to its green coast in one unbroken painted walk.）
 

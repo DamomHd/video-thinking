@@ -1,6 +1,6 @@
 # 50s 扁平卡通 · Mid-century Cartoon
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：卡通与动画（Cartoon & Anime）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：卡通与动画（Cartoon & Anime）
 
 **一句话**：用 50 年代教育片的口吻，三步教你装好一台扫地机。（A robot vacuum set up in three steps, told like a 1950s classroom film.）
 

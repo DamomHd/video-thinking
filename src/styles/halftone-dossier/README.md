@@ -1,6 +1,6 @@
 # 复古半调案卷 · Halftone Dossier
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：印刷与版画（Print & Printmaking）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：印刷与版画（Print & Printmaking）
 
 **一句话**：橘猫胖橘被立案审查：测试重力、凌晨跑酷，最后无罪释放。（A chubby orange cat stands trial for testing gravity and 4 a.m. parkour, and walks free.）
 

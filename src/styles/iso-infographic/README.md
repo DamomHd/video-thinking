@@ -1,6 +1,6 @@
 # 等距信息图 · Isometric Infographic
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：信息与发布（Information & Keynote）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：信息与发布（Information & Keynote）
 
 **一句话**：一杯咖啡从种植园到你手里的旅程。（A coffee's journey from the plantation to your hands, across one isometric world.）
 

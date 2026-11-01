@@ -1,6 +1,6 @@
 # 象形运动图形 · Pictogram Motion
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：2026 亚运会 43 个大项，几何象形人卡着节拍快闪。（All 43 sports of the 2026 Asian Games as beat-locked geometric pictograms.）
 

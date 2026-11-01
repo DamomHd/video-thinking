@@ -109,6 +109,39 @@
       "height": 1080,
       "sha1": "9bd07a2c5b28",
       "savedAt": "2026-10-26T15:50:52.200Z"
+    },
+    {
+      "film": "vw-promo",
+      "label": "v1",
+      "file": "archive/vw-promo/v1.mp4",
+      "durationSec": 36,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "0329f80ddbb9",
+      "savedAt": "2026-10-28T04:40:15.953Z"
+    },
+    {
+      "film": "vw-promo",
+      "label": "v2",
+      "file": "archive/vw-promo/v2.mp4",
+      "durationSec": 36,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "1e2691bcd11f",
+      "savedAt": "2026-10-28T06:29:11.764Z"
+    },
+    {
+      "film": "vw-promo",
+      "label": "v3",
+      "file": "archive/vw-promo/v3.mp4",
+      "durationSec": 36,
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "sha1": "187410ba41af",
+      "savedAt": "2026-10-28T06:37:37.583Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # 蓝图 / 工程制图 · Blueprint
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：发明家的蓝图自己画出一台接云机器，修订云线变成了真的雨云。（An inventor's blueprint draws, explodes and assembles a cloud-catching machine, and its revision cloud starts to rain.）
 

@@ -326,7 +326,7 @@ function o98StyleMd(f: O98Film, commit: string): string {
   return `# ${f.style_zh} · ${f.style_en}
 
 > 原文：lemo-opuscar \`styleboard/opuscar98_styles.json\` 第 ${f.no} 条（OPUSCAR 98 纪念片里《${f.zh}》${f.title}（${f.year}）那一段的风格；LemoLab，MIT，commit \`${commit}\`），${new Date().toISOString().slice(0, 10)} 收入本仓库风格库，未改动。
-> 和 59 个完整风格的区别：这是一段约 5 秒的片段风格，提示词更短，没有完整的十一节说明。片子选了它，就按下面的「风格提示词」做；在本工程里怎么落地见 docs/library/adaptation.md §11、§13。
+> 和 66 个完整风格的区别：这是一段约 5 秒的片段风格，提示词更短，没有完整的十一节说明。片子选了它，就按下面的「风格提示词」做；在本工程里怎么落地见 docs/library/adaptation.md §11、§13。
 
 **渲染**：${f.render}（${f.dim}）　**手法组合**：${f.blend_zh.join(' · ')}（${f.blend_en.join(' · ')}）
 
@@ -401,7 +401,7 @@ export function importOpuscar98(upstream: string, root = process.cwd()): string[
     }
     const md = o98StyleMd(f, commit)
       .replace('收入本仓库风格库，未改动。', '收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。')
-      .replace(/> 和 59 个完整风格的区别：[^\n]*\n/, '> 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。\n');
+      .replace(/> 和 66 个完整风格的区别：[^\n]*\n/, '> 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。\n');
     fs.writeFileSync(path.join(dir, `${id}.md`), `${md}\n![画面帧](img/${nn}.jpg)\n`);
     rows.push(`| ${f.no} | [${f.style_zh}](${id}.md) | ${f.style_en} | ${f.render} | ${f.blend_zh.join(' · ')} |`);
     ids.push(id);

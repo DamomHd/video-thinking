@@ -1,6 +1,6 @@
-import { describe, it } from 'node:test';
+import { test, describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { scoreGrid, defineScore, scoreEvents, offGridHits } from './score';
+import { scoreGrid, defineScore, scoreEvents, offGridHits, filmMoments } from './score';
 
 const SPEC = { bpm: 120, key: '8B', startSec: 0.5, sections: [{ id: 'intro', bars: 2 }, { id: 'drop', bars: 4 }] };
 
@@ -73,4 +73,17 @@ describe('配乐网格先行 score', () => {
     );
     assert.deepEqual(off.map((o) => [o.id, o.errMs]), [['不在小节头', 500]]);
   });
+});
+
+test('画面先行：g.hit 取画面时刻（动作事件取落定时刻、同名时优先）；没有的 id 报错并列出有哪些', () => {
+  const moments = filmMoments([{ id: 'P0.title', sec: 12.4 }, { id: 'K.lock', sec: 3 }], [{ id: 'K.lock', at: 2.6, land: 3.1 }, { id: 'pen', at: 5 }]);
+  assert.deepEqual(moments, { 'P0.title': 12.4, 'K.lock': 3.1, pen: 5 });
+  const def = defineScore({
+    grid: { bpm: 90, key: '10A', sections: [{ id: 'all', bars: 8 }], lock: false },
+    notes: (g) => [{ t: g.hit('P0.title'), inst: 'piano', pitch: g.degree(0, 3) }, { t: g.hit('pen'), inst: 'glass', pitch: 'D6' }],
+  });
+  const r = scoreEvents(def, moments);
+  assert.deepEqual(r.notes.map((n) => n.t), [5, 12.4]);
+  assert.equal(r.notes[1].pitch, 59); // 10A = B 小调，g.degree(0, 3) = B3
+  assert.throws(() => scoreEvents(defineScore({ ...def, notes: (g) => [{ t: g.hit('nope'), inst: 'piano' }] }), moments), /没有时刻 nope.*P0\.title/);
 });

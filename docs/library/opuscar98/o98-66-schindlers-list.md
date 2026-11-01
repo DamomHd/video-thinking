@@ -1,6 +1,6 @@
 # 黑白胶片 · 唯一的红大衣 · Black-and-white Film, One Red Coat
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 66 条（OPUSCAR 98 纪念片里《辛德勒的名单》Schindler's List（1993）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 66 条（OPUSCAR 98 纪念片里《辛德勒的名单》Schindler's List（1993）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D·B&W）　**手法组合**：高反差黑白胶片 · 粗颗粒银盐 · 局部留色 · Janusz Kamiński（High-contrast B&W film · Coarse silver grain · Selective colour · Janusz Kamiński）

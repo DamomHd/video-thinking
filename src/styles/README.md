@@ -1,7 +1,7 @@
 # 风格索引
 
 > 由 `vw style index` 生成，不要手改。片子默认不选风格（模型按内容自己设计主题）；用户想从库里挑时，按题目推荐两三个，再把这张全表贴进对话（中文名），附海报帧（`<id>/refs/poster.jpg`），让用户打字选。选了就读那个风格的 `STYLE.md`（完整风格的约束都在里面）。
-> 共 61 个：自有 2 个，收录 59 个（lemo-opuscar 完整风格）。只有完整的风格才进库。
+> 共 68 个：自有 2 个，收录 66 个（lemo-opuscar 完整风格）。只有完整的风格才进库。
 
 ## 我的风格
 
@@ -36,10 +36,11 @@
 | [产品拆解 · Exploded Teardown](teardown/README.md) | `teardown` | Hardware launches · Product pages · Spec explainers |
 | [白模投影 · Projection on White Model](white-model/README.md) | `white-model` | Urban planning · Exhibitions · City data |
 
-## 手绘与绘画 · Hand-drawn & Painting（7）
+## 手绘与绘画 · Hand-drawn & Painting（8）
 
 | 风格 | id | 适合 |
 |---|---|---|
+| [黑板粉笔 · Chalkboard](chalkboard/README.md) | `chalkboard` | Word origins · Myth-busting · Lessons |
 | [蜡笔儿童绘本 · Crayon Picture Book](crayon-book/README.md) | `crayon-book` | Picture books · Bedtime stories · Kids' learning |
 | [油画厚涂 · Impasto Oil Painting](impasto/README.md) | `impasto` | Music videos · Art & culture · Emotional ads |
 | [中国水墨 · Chinese Ink Wash](ink-wash/README.md) | `ink-wash` | Wuxia · Cultural brands · Poetry |
@@ -57,12 +58,13 @@
 | [皮影戏 · Shadow Puppetry](shadow-puppet/README.md) | `shadow-puppet` | Myths & folklore · Heritage · Festivals |
 | [浮世绘 · Ukiyo-e](ukiyoe/README.md) | `ukiyoe` | Travel · Japanese culture · Poetry |
 
-## 印刷与版画 · Print & Printmaking（5）
+## 印刷与版画 · Print & Printmaking（6）
 
 | 风格 | id | 适合 |
 |---|---|---|
 | [铜版画 · Copperplate Engraving](engraving/README.md) | `engraving` | Museum labels · Science explainers · Brand heritage |
 | [复古半调案卷 · Halftone Dossier](halftone-dossier/README.md) | `halftone-dossier` | Humour · Pet content · Social shorts |
+| [印刷长镜头 · Printed Long Take](printed-long-take/README.md) | `printed-long-take` | Journeys · Wildlife · Landscapes |
 | [Risograph 孔版印刷 · Risograph Print](risograph/README.md) | `risograph` | Indie brands · Zines · Lifestyle |
 | [丝印旅行海报 · Silkscreen Travel Poster](silkscreen-poster/README.md) | `silkscreen-poster` | Destination guides · Tourism · Event posters |
 | [木刻版画 · Woodcut Print](woodcut/README.md) | `woodcut` | Folk tales · Craft brands · Book trailers |
@@ -79,15 +81,18 @@
 | [彩色玻璃窗 · Stained Glass](stained-glass/README.md) | `stained-glass` | Legends · Heritage · Holiday stories |
 | [瑞士动态排版 · Swiss Motion Graphics](swiss-motion/README.md) | `swiss-motion` | Brand identity · Events · Design education |
 
-## 信息与发布 · Information & Keynote（5）
+## 信息与发布 · Information & Keynote（8）
 
 | 风格 | id | 适合 |
 |---|---|---|
+| [电路板 · Circuit Board](circuit-board/README.md) | `circuit-board` | Energy · Supply chains · Devices |
 | [暗色科技发布 · Dark Tech Keynote](dark-keynote/README.md) | `dark-keynote` | Product launches · SaaS · Keynotes |
 | [数据叙事 · Data Storytelling](dataviz/README.md) | `dataviz` | Data journalism · Reports · Climate & science |
 | [科幻全息界面 · Sci-fi Hologram HUD](hologram-hud/README.md) | `hologram-hud` | Spec walkthroughs · Launch videos · Trade shows |
 | [等距信息图 · Isometric Infographic](iso-infographic/README.md) | `iso-infographic` | Process explainers · Supply chains · Annual reports |
+| [等距绘本 · Isometric Picture Book](isometric-picture-book/README.md) | `isometric-picture-book` | Everyday rules · Queues · Comparisons |
 | [活体实机录屏 · Living Screencast](living-screencast/README.md) | `living-screencast` | Product tutorials · Feature launches · Onboarding |
+| [地铁线路图 · Transit Map](transit-map/README.md) | `transit-map` | Transport · Growth over time · Networks |
 
 ## 卡通与动画 · Cartoon & Anime（4）
 
@@ -114,12 +119,14 @@
 | [后室 / 新怪谈 · Liminal Found Footage](backrooms/README.md) | `backrooms` | Horror · Mystery & ARG · Game teasers |
 | [1920s 默片 · 1920s Silent Film](silent-film/README.md) | `silent-film` | Comedy · Retro brands · Silent storytelling |
 
-## 材质与 3D · Materials & 3D（5）
+## 材质与 3D · Materials & 3D（7）
 
 | 风格 | id | 适合 |
 |---|---|---|
 | [积木玩具 · Brick Toy](brick-toy/README.md) | `brick-toy` | Toys & kids · Product builds · Space |
+| [桌面穿梭 · Desktop Flythrough](desktop-flythrough/README.md) | `desktop-flythrough` | App explainers · Workflows · Products |
 | [玻璃质感产品 · Glass Product Render](glass-product/README.md) | `glass-product` | Product launches · Consumer tech · Beauty |
 | [低多边形等距 · Low-poly Isometric Island](lowpoly-island/README.md) | `lowpoly-island` | Game trailers · World building · Calm content |
+| [孟菲斯微缩景观 · Memphis Diorama](memphis-diorama/README.md) | `memphis-diorama` | Web heroes · Ambient loops · Seasons |
 | [纸片立体书 · Paper Pop-up Book](paper-popup/README.md) | `paper-popup` | Children's books · Game trailers · Story films |
 | [移轴微缩 · Tilt-Shift Miniature](tilt-shift/README.md) | `tilt-shift` | City promos · Real estate · Transport |

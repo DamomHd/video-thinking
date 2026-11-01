@@ -1,6 +1,6 @@
 # 档案灯台 · Archive Light Table
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：电报说最长飞了 57 秒；放大镜下，莱特兄弟的底片和档案说是 59 秒。（The telegram said 57 seconds; under a loupe, the Wrights' glass negatives and the archive say 59.）
 

@@ -180,13 +180,16 @@ export async function runGuardChecks(
       console.error(`  ✗ music.json 写的是按片作曲，但片子没有 audio/score.ts`);
     } else {
       const grid = scoreGrid(def.grid);
-      const off = offGridHits(adapter.hits(), grid, 30);
+      // 画面先行（grid.lock: false）：谱贴着画面写，拍点不必在网格上
+      const off = def.grid.lock === false ? [] : offGridHits(adapter.hits(), grid, 30);
       const knots = (truth.sync?.knots ?? []) as unknown[];
       if (off.length) {
         gridValid = false;
         console.error(`  ✗ ${off.length} 个画面拍点没落在配乐网格上（容差 1 帧）：\n${off.map((o) => `    - ${o.id} ${o.sec.toFixed(3)}s → 最近的${o.want === 'beat' ? '拍' : o.want === 'downbeat' || o.want === 'drop' ? '小节头' : '十六分音'} ${o.nearest.toFixed(3)}s（差 ${o.errMs} 毫秒）`).join('\n')}`);
       } else {
-        console.log(`  ✓ 按片作曲：${adapter.hits().length} 个画面拍点全部落在配乐网格上（${def.grid.bpm} BPM，容差 1 帧）`);
+        console.log(def.grid.lock === false
+          ? `  ✓ 按片作曲（画面先行）：谱贴着画面时刻写，不查网格`
+          : `  ✓ 按片作曲：${adapter.hits().length} 个画面拍点全部落在配乐网格上（${def.grid.bpm} BPM，容差 1 帧）`);
       }
       if (knots.length > 1) {
         gridValid = false;

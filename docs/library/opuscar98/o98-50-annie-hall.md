@@ -1,6 +1,6 @@
 # 《纽约客》单格漫画 · 墨线淡彩 · New Yorker Cartoon, Ink and Wash
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 50 条（OPUSCAR 98 纪念片里《安妮·霍尔》Annie Hall（1977）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 50 条（OPUSCAR 98 纪念片里《安妮·霍尔》Annie Hall（1977）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：《纽约客》单格漫画 · 钢笔墨线 · 淡水彩 · 手写图说（New Yorker single-panel cartoon · nib-pen ink line · light watercolour wash · hand-lettered caption）

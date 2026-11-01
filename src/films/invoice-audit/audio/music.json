@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "一张张接住 · Catch One by One",
+      "in": {
+        "ref": "SC.open",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 32
+      },
+      "brief": "按片作曲：谱贴着画面写",
+      "startFromSec": 0,
+      "volume": 0.8,
+      "fadeInSec": 0.3,
+      "fadeOutSec": 2,
+      "track": {
+        "id": "invoice-audit-score",
+        "title": "一张张接住 · Catch One by One",
+        "artist": "按片作曲（采样 / 合成）",
+        "bpm": 104,
+        "key": "7B",
+        "file": "music/invoice-audit-score.wav",
+        "durationSec": 34.3077,
+        "adapted": false,
+        "source": "score",
+        "license": "Samples (CC0): VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios)",
+        "url": ""
+      }
+    }
+  ]
+}

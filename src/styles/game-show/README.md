@@ -1,6 +1,6 @@
 # 综艺节奏扁平 · Game Show Flat
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：游戏（Games）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：游戏（Games）
 
 **一句话**：把 AI 发展史做成一局节奏游戏，模型踩着拍登场，最后发成绩单。（The history of AI as a rhythm game: models take the stage on the beat, and a report card closes the show.）
 

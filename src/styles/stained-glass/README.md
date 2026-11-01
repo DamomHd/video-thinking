@@ -1,6 +1,6 @@
 # 彩色玻璃窗 · Stained Glass
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：阳光从清晨移到黄昏，照到哪一格花窗，哪一格的故事就动起来。（Sunlight crosses a cathedral window from dawn to dusk, waking each pane of a knight-and-dragon tale.）
 

@@ -1,6 +1,6 @@
 # 50 年代电视显像管录像 · 1955 Kinescope on a Living-Room TV
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 28 条（OPUSCAR 98 纪念片里《君子好逑》Marty（1955）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 28 条（OPUSCAR 98 纪念片里《君子好逑》Marty（1955）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D (B&W screen)）　**手法组合**：kinescope 黑白录像 · 圆角显像管与扫描线 · 暖色 50 年代客厅插画（Kinescope black-and-white · Curved CRT screen and scanlines · Warm 1950s living-room illustration）

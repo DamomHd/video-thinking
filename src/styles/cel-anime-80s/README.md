@@ -1,6 +1,6 @@
 # 80 年代赛璐璐动画 · 80s Cel Anime
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：卡通与动画（Cartoon & Anime）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：卡通与动画（Cartoon & Anime）
 
 **一句话**：快递少女骑车穿过雨后霓虹都市，赶在黎明发射前送到一盘磁带。（A courier girl rides through a rain-soaked neon city to deliver a tape before the dawn launch.）
 

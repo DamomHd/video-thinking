@@ -1,6 +1,6 @@
 # 延时交响 · Time-lapse Symphony
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：纽约的一天：延时光河、踩着十六分音符的网格，1899 年和今天并排。（One day in New York in time-lapse: rivers of light, a grid on the sixteenths, 1899 beside today.）
 

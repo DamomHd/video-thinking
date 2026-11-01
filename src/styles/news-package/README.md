@@ -1,6 +1,6 @@
 # 电视新闻包装 · Broadcast News Package
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：一周四条 AI 新闻，一整套电视台包装：串联单、标题条、翻牌价格表、规格卡。（Four AI stories from one week in a full on-air package: rundown, headline strap, price board, spec card.）
 

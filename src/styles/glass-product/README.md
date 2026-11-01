@@ -1,6 +1,6 @@
 # 玻璃质感产品 · Glass Product Render
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：材质与 3D（Materials & 3D）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：材质与 3D（Materials & 3D）
 
 **一句话**：虚构玻璃耳机 Aura 的开箱与特写。（Unboxing and close-ups of Aura, fictional glass earbuds, in strip-light sweeps and caustics.）
 

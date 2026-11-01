@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "cues": [
+    {
+      "id": "c1",
+      "label": "确定性之声 · Deterministic Flow",
+      "in": {
+        "ref": "SC.pain",
+        "sec": 0
+      },
+      "out": {
+        "ref": "SC.end",
+        "sec": 36
+      },
+      "brief": "按片作曲：谱贴着画面写",
+      "startFromSec": 0,
+      "volume": 0.8,
+      "fadeInSec": 0.3,
+      "fadeOutSec": 2,
+      "track": {
+        "id": "vw-promo-score",
+        "title": "确定性之声 · Deterministic Flow",
+        "artist": "按片作曲（采样 / 合成）",
+        "bpm": 104,
+        "key": "11B",
+        "file": "music/vw-promo-score.wav",
+        "durationSec": 38.9231,
+        "adapted": false,
+        "source": "score",
+        "license": "Samples (CC0): VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios)",
+        "url": ""
+      }
+    }
+  ]
+}

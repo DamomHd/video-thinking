@@ -49,7 +49,7 @@ huashu-motion 的 8 个模板里收了 7 个画法的实现（`src/vendor/huashu
 - **字**：上游手写体只有拉丁字母；中文要写字时给 `letter()` 传 `{ font: '…px 字体名' }`。
 
 ## 11. 收录的风格（lemo-opuscar）
-lemo-opuscar（LemoLab，MIT）的 59 个风格整份收进风格库（`src/styles/<id>/`，2026-10-26 用户决定；登记在 `src/styles/opuscar.ts`，`scripts/style/import-opuscar.ts` 生成，可对上游重跑）。
+lemo-opuscar（LemoLab，MIT）的 66 个风格整份收进风格库（`src/styles/<id>/`，2026-10-26 用户决定；登记在 `src/styles/opuscar.ts`，`scripts/style/import-opuscar.ts` 生成，可对上游重跑）。
 - **用法**：片子默认不选风格；开工前问答时，内容和某个风格对得上，可以把它列为选项（附海报帧 `refs/poster.jpg`）。选了就读它的 `STYLE.md` 原文照着做，`DEMO.md` 只是上游那一支样片的例子，不照搬故事和镜头。
 - **引擎换算**：原文写给上游的「每帧一个 HTML 页面 + `window.render(t)`」引擎。本工程里画面用 Remotion 组件写（`t` 作 prop、纯函数），Canvas 类风格可直接在组件里画 2D Canvas，WebGL 类走 `three/FilmCanvas`，笔刷类可用 `paint/PaintCanvas`；声音按原文的声音调色板走本工程的配声平台（`events` → `autoSpots`、`vw music`）。原文里 `still.mjs` / `readcheck.mjs` / `mux.sh` 等命令对应本工程的 `vw still` / `vw check` / `vw render`。
 - **样片源码**：`vw style demo <id>` 取到 `out/styles/<id>/demo/`，读来学具体手法（它怎么画墨、怎么做光、怎么混音），不在本工程里渲。
@@ -59,7 +59,7 @@ lemo-opuscar（LemoLab，MIT）的 59 个风格整份收进风格库（`src/styl
 
 ## 12. lemo-opuscar 的工具链与导演经验
 声音和检查工具原样收在 `vendor/lemo-opuscar/`（Python，`.venv`；见那里的 NOTICE.md），导演 / 技术指南原文在 `docs/method/opuscar/`。本工程的接法：
-- **采样配乐**：不用上游「每部片手写 Python 谱」的做法，而是让本工程的结构化作曲（`structure.ts`：段长、律动、起势、高潮小节）照旧写谱，`scripts/composer/sampled.ts` 按配器方案换成真实乐器演奏。改了两处：力度朝高潮走；**高潮前一小节收一口气**（本工程的分析器按能量跳变找高潮，起势比高潮跳得猛会把高潮测错一小节——实测过）。
+- **配乐：照上游，每部片原创作曲**（2026-10-28 改回）。原先这里写的是「不用上游每部片手写谱，让结构化作曲（`structure.ts`）照旧写谱、`sampled.ts` 换成真实乐器演奏」——结果每部片都是同一份谱（C 大调 / A 小调、I–V–vi–IV、固定段落和鼓型，只按速度、片长、高潮伸缩），用户听出来「每次都是一个声音」，是严重缺陷。这个改写错在把作曲当成基础设施，而作曲是创作决定，和画面一样要按内容逐片设计；上游 TECHNIQUE §5 原话就是「Write an original score from the cue map… no generic piano and strings」。现在的做法：片子写 `audio/score.ts`（`shared/score` 的 `defineScore`），模型定调性 / 和声 / 动机 / 配器 / 律动；画面已排好时用 `grid.lock: false` + `g.hit('<拍点或动作事件 id>')` 贴着画面时刻写（等于上游的 `HIT['lightOn']`），也可以网格先行；`vw music score` 用同一套采样器 / 合成器渲染。`vw music match --local` 的结构化作曲退为兜底（用户同意、决策单写明理由才用），`vw review` 会报警；它在 `sampled.ts` 里的两处改动（力度朝高潮走、高潮前一小节收一口气）保留。
 - **配音**：`vw voice` 包了上游三个脚本；配音放进片子混音需要新的音频层，未做（等确认）。
 - **读字检查**：上游要片子自己登记 `window.TEXTS(t)`；本工程直接读 DOM（`components/ReadProbe.tsx`，只在 `vw readcheck` 时挂上），文字按块归并，翻牌格之类一两个字的小块并到所在的一行，位置不变只换字的算同一段，被原地换掉的中间态不报。
 - **响度**：目标同上游（−14 LUFS、真峰 −1.2），做法不同：上游 `mux.sh` 用 loudnorm 两遍，线性增益超真峰时会退回动态模式压缩；本工程改成限幅只削瞬态 + 纯增益，保住「静默 → 重击」的反差。

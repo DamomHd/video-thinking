@@ -1,6 +1,6 @@
 # 白模投影 · Projection on White Model
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：投影机把数据一层层刷上鹿特丹白模：从 1940 年的空洞到今天的塔楼。（A projector paints Rotterdam's white model layer by layer, from the 1940 gap to today's towers.）
 

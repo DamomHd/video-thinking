@@ -1,6 +1,6 @@
 # 木刻版画 · Woodcut Print
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：印刷与版画（Print & Printmaking）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：印刷与版画（Print & Printmaking）
 
 **一句话**：村子用一整个冬天铸一口钟，钟声第一次响起，雪停了。（A village spends a whole winter casting one bell; the first time it rings, the snow stops.）
 

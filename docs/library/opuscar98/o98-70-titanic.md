@@ -1,6 +1,6 @@
 # 蓝图显影成 3D 实景 · Blueprint Developing into 3D Sunset
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 70 条（OPUSCAR 98 纪念片里《泰坦尼克号》Titanic（1997）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 70 条（OPUSCAR 98 纪念片里《泰坦尼克号》Titanic（1997）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：3D（3D）　**手法组合**：船厂总布置蓝图 · 按真实尺寸建模的 three.js 船 · Russell Carpenter 的色彩 · 一镜到底（Shipyard general-arrangement blueprint · three.js ship at true scale · Russell Carpenter's colour · One continuous camera move）

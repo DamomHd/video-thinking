@@ -1,6 +1,6 @@
 # 1930s 橡皮管卡通 · 1930s Rubber Hose Cartoon
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：卡通与动画（Cartoon & Anime）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：卡通与动画（Cartoon & Anime）
 
 **一句话**：一只咖啡杯满厨房追一块逃跑的方糖。（A coffee cup chases a runaway sugar cube around the kitchen, 1930s-cartoon style.）
 

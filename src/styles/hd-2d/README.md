@@ -1,6 +1,6 @@
 # HD-2D · HD-2D
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：游戏（Games）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：游戏（Games）
 
 **一句话**：灯塔熄灭，孙女提着最后一簇火穿过夜林、爬上风暴悬崖。（The lighthouse goes dark; a girl carries the last flame through a night forest and up the storm cliffs.）
 

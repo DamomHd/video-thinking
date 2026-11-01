@@ -107,7 +107,7 @@ function showHelp() {
   readcheck <film> [--step=0.2]    读字检查：每段字完整可读的时间够不够读完（中文 字数÷4.5+1.5s）→ out/<片>/readcheck.json
   style gallery [--open] [--videos] 风格库总览页 out/styles/gallery.html：按分类排海报，点开内嵌播放上游样片、看 STYLE.md；--videos 把样片缓存到本地离线播
   style index                      生成风格索引 src/styles/README.md（按分类，自有风格在前；挑风格时贴给用户）
-  style list                       列出风格（src/styles/<id>/）：自有风格（用户认可后沉淀）+ 收录的 lemo-opuscar 59 个风格。片子默认不选
+  style list                       列出风格（src/styles/<id>/）：自有风格（用户认可后沉淀）+ 收录的 lemo-opuscar 66 个风格。片子默认不选
   style sheet <id>                 渲风格样张：色板、字号阶梯、墨线、图框 → out/styles/<id>-sheet.png
   style demo <id>                  收录风格的样片源码 → out/styles/<id>/demo/（读来学手法）
   style fork <底子> --id= | fork --blank --technique=<底子> --id=   改成你自己的风格：起草稿（out/style-drafts/<id>/）
@@ -189,6 +189,7 @@ Blender 预渲染:
 
 质检与诊断:
   qa odd <film>                    孤帧扫描（只看三帧窗口里孤立的那一帧）[--region=x,y,w,h]
+  qa audio <film>                  音效反查：计划里的点类音效落点，在成片音轨里是否真响了、起音偏移多少 ms（需先出片）
   qa flicker <film>                闪帧扫描（8×5 灰度逐帧比，标出是否落在转场上）
   spot sheet <film>                生成 spot-sheet.txt（按时间通读）与 spot-palette.txt（采购单）
   spot video <film>                纯画面信号：运动面积 / 帧差 / 亮度 / 切镜 + 召回噪音对账
@@ -339,7 +340,7 @@ async function main() {
       console.log(`  真值: 九张 JSON 已清成干净起点`);
       console.log(`\n  下一步：`);
       console.log(`    1. 改 film.json 的 title；改 timeline.ts 的幕表、audio/adapter.ts 的 palette / spots / hits / zones`);
-      console.log(`    2. vw sfx search ${id} → sfx pick → sfx plan → music match → check → render\n`);
+      console.log(`    2. vw sfx search ${id} → sfx pick → sfx plan → 写 audio/score.ts、music score（按片作曲）→ check → render\n`);
       break;
     }
 
@@ -1050,7 +1051,7 @@ async function main() {
         for (const p of r.problems) console.warn(`  ! ${p}`);
         console.log(`[vw music score] ${id}：${r.notes} 个音 · ${r.grid.spec.bpm} BPM · 调 ${r.grid.spec.key} · ${r.durSec.toFixed(2)} 秒 → public/${r.file}`);
         console.log(`  乐器：${r.instruments.join('、')}`);
-        console.log(`  music.json 已写回（来源：按片作曲），对拍映射已清成恒等（画面锁在网格上）。下一步：vw sfx plan ${id} → vw check ${id}\n`);
+        console.log(`  music.json 已写回（来源：按片作曲），对拍映射已清成恒等（${r.grid.spec.lock === false ? '谱贴着画面写' : '画面锁在网格上'}）。下一步：vw sfx plan ${id} → vw check ${id}\n`);
       } else if (action === 'compose') {
         const res = await generateFilmScoreWav(id);
         console.log(`[vw music compose] → ${res.outputPath}`);
@@ -1068,7 +1069,7 @@ async function main() {
         if (!svc.available()) {
           console.error(
             `[vw music search] 需要 EPIDEMIC_SOUND_API_KEY（环境变量或 .env）。` +
-              `\n  没有凭据时请走 'vw music match ${id} --local'，用本地 ABC 作曲引擎生成配乐。`
+              `\n  没有凭据时为这部片写 audio/score.ts、跑 'vw music score ${id}'（按片作曲）；'vw music match ${id} --local' 是通用模板，只作兜底。`
           );
           process.exit(1);
         }
@@ -1467,6 +1468,14 @@ async function main() {
     case 'qa': {
       const action = positional[0];
       const id = requireFilm(positional[1]);
+      if (action === 'audio') {
+        const { runAudioAudit } = await import('../scripts/guard/audio-audit.js');
+        const mark = { ok: '✓', hint: '·', warn: '!' } as const;
+        console.log(`\n[vw qa audio] ${id}\n`);
+        for (const it of await runAudioAudit(id)) console.log(`  ${mark[it.level]} ${it.text}`);
+        console.log('');
+        break;
+      }
       const outDir = path.join(process.cwd(), 'out', id);
       const variant = flags['variant'] ? `${flags['variant']}-` : '';
       const target =

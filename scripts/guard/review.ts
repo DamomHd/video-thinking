@@ -6,6 +6,8 @@ import { TruthManager } from '../spot/truth.js';
 import { camelotTonic } from '../../src/shared/beats.js';
 import { buildTimeWarp } from '../../src/shared/timewarp.js';
 import { audioRmsLevels, climaxesOf, energyCurve, energyReview, perSecond, shotReview } from './structure.js';
+import { acceptanceReview, type Evidence } from './verify.js';
+import { filmKindOf } from './brief.js';
 
 /**
  * 导演自检（vw review <片>）：出片后由模型自己跑，对照导演决策单逐项给出提示。
@@ -41,8 +43,11 @@ export function reviewDirector(text: string | null): ReviewItem[] {
   // 设计评审的五个分数项由 reviewDesign 单独检查，这里不当「没填」报
   // 「和样片对照」只在沿用库里风格时检查（reviewDemoContrast）；「有角色时」「分镜（用户要了才做）」是可选项
   const body = text.split('## 自检记录')[0].split('## 设计评审')[0].split('## 和样片对照')[0];
-  const OPTIONAL = /^- (有角色时|分镜|口播（默认没有|中段的「静 → 爆」)/;
-  const empties = body.split('\n').filter((l) => /^- [^：:]+[：:]\s*$/.test(l.trim()) && !OPTIONAL.test(l.trim()));
+  const OPTIONAL = /^- (有角色时|分镜|感受线|感受段|口播（默认没有|中段的「静 → 爆」)/;
+  // 感受型片：事实清单 / 信息容量 / 纸面检验 / 一句话是信息型专属项，留空不算没填
+  const FEELING_SKIP = /^- (事实清单|信息容量|纸面检验|一句话)/;
+  const feeling = filmKindOf(text) === '感受型';
+  const empties = body.split('\n').filter((l) => /^- [^：:]+[：:]\s*$/.test(l.trim()) && !OPTIONAL.test(l.trim()) && !(feeling && FEELING_SKIP.test(l.trim())));
   if (empties.length) out.push({ level: 'warn', topic: '决策单', text: `${empties.length} 项没填：${empties.map((l) => l.trim().replace(/^- /, '').replace(/[：:]\s*$/, '')).slice(0, 5).join('、')}` });
   if (/待定|TODO|<片名>|<style id>/.test(body)) out.push({ level: 'warn', topic: '决策单', text: '还有「待定 / TODO / 模板占位」没替换' });
   const hero = body.match(/主镜头[：:]\s*\**\s*(是|否)/);
@@ -83,6 +88,20 @@ function section(text: string, head: string): string | null {
   const rest = text.slice(i + head.length);
   const j = rest.search(/\n## /);
   return j < 0 ? rest : rest.slice(0, j);
+}
+
+/**
+ * 配乐是不是为这部片写的（纯函数）：vw music match --local 的本地作曲是一份通用模板
+ * （C 大调 / A 小调、I–V–vi–IV、固定的段落和鼓型，只按速度、片长、高潮伸缩；--sampled 只换音色），
+ * 每部片听起来是同一首。按片作曲（audio/score.ts）或外部曲目才算这部片自己的配乐。
+ */
+export function musicOriginReview(tracks: { title?: string; source?: string; key?: string; bpm?: number }[]): ReviewItem[] {
+  const T = '配乐';
+  if (!tracks.length) return [];
+  const tpl = tracks.filter((t) => t.source === 'local-sampled' || t.title === '本地合成配乐');
+  if (tpl.length) return [{ level: 'warn', topic: T, text: `配乐用的是通用模板（${tpl.map((t) => t.title).join('、')}）：调性、和弦进行、段落、鼓型每部片都一样，只有速度和长度不同——为这部片写 audio/score.ts（shared/score 的 defineScore；画面已排好就用 grid.lock: false + g.hit() 贴着画面写），再跑 vw music score` }];
+  const own = tracks.filter((t) => t.source === 'score');
+  return [{ level: 'ok', topic: T, text: own.length ? `按片作曲（${own.map((t) => `${t.key ?? '?'} · ${t.bpm ?? '?'} BPM`).join('、')}）` : `外部曲目：${tracks.map((t) => t.title).join('、')}` }];
 }
 
 /**
@@ -306,8 +325,9 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
   {
     const { runBrief } = await import('./brief.js');
     const total = (await getFilm(filmId).getAdapter()).timeline.totalSeconds;
-    items.push(...runBrief(filmId, total, root).items.filter((i) => i.level !== 'ok' || /结论 .*出现/.test(i.text)));
+    items.push(...runBrief(filmId, total, root).items.filter((i) => i.level !== 'ok' || /结论 .*出现/.test(i.text) || i.topic === '事实溯源'));
   }
+  const early = items.length;
   items.push(...reviewDemoContrast(dText, libraryStyleOf(fs.existsSync(path.join(dir, 'theme.ts')) ? fs.readFileSync(path.join(dir, 'theme.ts'), 'utf-8') : null)));
 
   // 2. 决策与实现：主镜头
@@ -346,6 +366,9 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
   const adapter = await getFilm(filmId).getAdapter();
   items.push(...densityReview(truth.plan, adapter.timeline.totalSeconds));
   items.push(...bedReview(truth.plan, adapter.timeline.totalSeconds));
+  let soundItems: ReviewItem[] = [];
+  let audioAudit: ReviewItem[] = [];
+  let criticState: Evidence['critic'] = 'none';
   {
     // 声音规则：静默（成片音轨）、段落交界的声音转场、声音设计表里的层
     const boundaries = adapter.timeline.scenes.slice(1).map((s) => s.start);
@@ -366,7 +389,16 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
         : layer === 'VO' ? ((truth as { voice?: { lines: unknown[] } }).voice?.lines.length ?? (fs.existsSync(path.join(dir, 'audio', 'voice.json')) ? 1 : 0))
           : truth.plan.filter((p) => p.layer === layer).length;
     const designLayers = LAYER_WORDS.filter(([, , re]) => re.test(table)).map(([name, layer]) => ({ name, count: count(layer) }));
-    items.push(...soundRulesReview({ silences, deepest, crossings: soundCrossings(truth.plan, boundaries), boundaries: boundaries.length, designLayers }));
+    soundItems = soundRulesReview({ silences, deepest, crossings: soundCrossings(truth.plan, boundaries), boundaries: boundaries.length, designLayers });
+    items.push(...soundItems);
+  }
+
+  // 音效反查：计划里的点类音效，在成片音轨里真的响了吗（需要先出片）
+  {
+    const { runAudioAudit } = await import('./audio-audit.js');
+    const a = await runAudioAudit(filmId, root);
+    items.push(...a);
+    audioAudit = a;
   }
 
   // 6. 外部素材许可证
@@ -377,6 +409,7 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
   const musicFiles = musicEntries.filter((e) => e.source === 'freesound').map((e) => e.file);
   items.push(...licenseReview([...truth.plan.map((p) => p.file), ...musicFiles], [...Object.values(manifest).flat(), ...musicEntries]));
   items.push(...sampledMusicReview(musicEntries));
+  items.push(...musicOriginReview((truth.music?.cues ?? []).filter((c) => c.track?.file).map((c) => c.track!)));
   items.push(...readReview(path.join(root, 'out', filmId, 'readcheck.json')));
   items.push(...voiceReview(path.join(root, 'src', 'films', filmId, 'audio', 'voice.json')));
   // 人声比配乐高多少：按真值算（口播文件电平 + VO 层 / 单句增益；配乐文件同一时段电平 + 段音量 + 让位 + 配乐层）
@@ -470,9 +503,27 @@ export async function runReview(filmId: string): Promise<ReviewItem[]> {
     const { criticReview, readCritic } = await import('./critic.js');
     const { parseBriefTable } = await import('./brief.js');
     const concl = parseBriefTable(dText ?? '').find((r) => r.level === '结论')?.point;
-    items.push(...criticReview(readCritic(root, filmId), concl, fs.statSync(final).mtimeMs, filmId));
+    const ci = criticReview(readCritic(root, filmId), concl, fs.statSync(final).mtimeMs, filmId);
+    items.push(...ci);
+    criticState = ci.some((i) => /还没冷看/.test(i.text)) ? 'none' : ci.some((i) => /比成片旧/.test(i.text)) ? 'stale' : ci.some((i) => i.level === 'warn') ? 'warn' : 'ok';
   } else {
     items.push({ level: 'hint', topic: '画面', text: '还没有成片，画面相关的提示要出片后再看' });
+  }
+  // 验收状态：把上面的证据归成六个维度（没看没听没冷看的不标通过）
+  {
+    const early0 = items.slice(0, early);
+    const trace = early0.filter((i) => i.topic === '事实溯源');
+    items.push(...acceptanceReview({
+      briefOk: !early0.some((i) => i.level === 'warn'),
+      facts: !trace.length ? 'none' : trace.some((i) => i.level === 'warn') ? 'warn' : 'ok',
+      readcheck: fs.existsSync(path.join(root, 'out', filmId, 'readcheck.json')),
+      designScored: !reviewDesign(dText).some((i) => /没打分|没有「设计评审」/.test(i.text)),
+      rendered: fs.existsSync(final),
+      audioWav: fs.existsSync(path.join(root, 'out', filmId, 'audio.wav')),
+      soundWarn: [...soundItems, ...audioAudit].some((i) => i.level === 'warn'),
+      listened: /听审|试听/.test((dText ?? '').split('## 自检记录')[1] ?? ''),
+      critic: criticState,
+    }));
   }
   return items;
 }

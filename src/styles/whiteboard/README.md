@@ -1,6 +1,6 @@
 # 白板讲解 · Whiteboard Explainer
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：手绘与绘画（Hand-drawn & Painting）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：手绘与绘画（Hand-drawn & Painting）
 
 **一句话**：手机怎么知道你在哪：GPS、原子钟，和相对论每天多出的 38 微秒。（How your phone knows where you are: GPS, atomic clocks, and the 38 microseconds relativity adds every day.）
 

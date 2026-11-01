@@ -9,7 +9,7 @@
  */
 import { spawnSync } from 'node:child_process';
 import type { ReviewItem } from './review.js';
-import type { BriefRow } from './brief.js';
+import type { BriefRow, Span } from './brief.js';
 
 export const HOOK_SEC = 3;
 /** 高潮前多长一段里要有一次回落（秒） */
@@ -21,15 +21,17 @@ const T = '结构';
  * 计划层（纯函数）：前 3 秒有没有信息点、配乐高潮那一刻有没有信息点落下。
  * 开场的口播（问题、反差）常常就是钩子但不算信息点，列出来给模型自己判断。
  */
-export function planStructureReview(rows: BriefRow[], climaxes: number[], vo: { id: string; text: string; sec: number }[] = [], tolSec = 1): ReviewItem[] {
+export function planStructureReview(rows: BriefRow[], climaxes: number[], vo: { id: string; text: string; sec: number }[] = [], tolSec = 1, spans: Span[] = []): ReviewItem[] {
   if (!rows.length) return [];
+  const inFeel = (t: number) => spans.some(([a, b]) => t >= a && t < b);
   const out: ReviewItem[] = [];
   const first = Math.min(...rows.map((r) => r.from));
   const openVo = vo.filter((l) => l.sec <= HOOK_SEC);
-  out.push(first <= HOOK_SEC
+  out.push(inFeel(0) ? { level: 'ok', topic: T, text: `钩子：开场是感受段（0–${spans.find(([a, b]) => 0 >= a && 0 < b)![1]}s），由感受抓人；第一个信息点 ${first}s` } : first <= HOOK_SEC
     ? { level: 'ok', topic: T, text: `钩子：第一个信息点 ${first}s 出现（前 ${HOOK_SEC} 秒内）` }
     : { level: 'hint', topic: T, text: `钩子：第一个信息点 ${first}s 才出现——前 ${HOOK_SEC} 秒拿什么留住人？一个问题、一个反差、或者结论本身${openVo.length ? `（开场口播 ${openVo.map((l) => `${l.id}「${l.text}」`).join('')}：如果它就是钩子，写进自检记录）` : ''}` });
   for (const c of climaxes) {
+    if (inFeel(c)) { out.push({ level: 'ok', topic: T, text: `配乐高潮 ${c.toFixed(1)}s 落在感受段里（不要求信息点）` }); continue; }
     const hit = rows.filter((r) => Math.abs(r.from - c) <= tolSec);
     const near = [...rows].sort((a, b) => Math.abs(a.from - c) - Math.abs(b.from - c))[0];
     out.push(hit.length

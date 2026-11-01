@@ -1,6 +1,6 @@
 # 一笔画 · One-line Drawing
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：手绘与绘画（Hand-drawn & Painting）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：手绘与绘画（Hand-drawn & Painting）
 
 **一句话**：一根不离纸的线画完一个人的一生，再把笔交给孩子。（One unbroken line draws a whole life, then the pen passes to a child.）
 

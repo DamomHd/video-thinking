@@ -1,0 +1,112 @@
+{
+  "bedWarm": [
+    {
+      "file": "sfx-lib/epidemic/bedWarm.wav",
+      "title": "bedWarm（本地合成 · TEX）",
+      "id": "local:bedWarm",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 18.6305,
+      "peakDb": -12.21
+    }
+  ],
+  "bedTension": [
+    {
+      "file": "sfx-lib/epidemic/bedTension.wav",
+      "title": "bedTension（本地合成 · TEX）",
+      "id": "local:bedTension",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 1.0575,
+      "peakDb": -11.38
+    }
+  ],
+  "bedLow": [
+    {
+      "file": "sfx-lib/epidemic/bedLow.wav",
+      "title": "bedLow（本地合成 · TEX）",
+      "id": "local:bedLow",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 1.3531,
+      "peakDb": -9.57
+    }
+  ],
+  "bedAir": [
+    {
+      "file": "sfx-lib/epidemic/bedAir.wav",
+      "title": "bedAir（本地合成 · TEX）",
+      "id": "local:bedAir",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 2.2054,
+      "peakDb": -8.34
+    }
+  ],
+  "cardLand": [
+    {
+      "file": "sfx-lib/epidemic/cardLand.wav",
+      "title": "cardLand（本地合成 · UI）",
+      "id": "local:cardLand",
+      "durSec": 0.7,
+      "onsetSec": 0,
+      "peakAtSec": 0.0043,
+      "peakDb": -2.77
+    }
+  ],
+  "countTick": [
+    {
+      "file": "sfx-lib/epidemic/countTick.wav",
+      "title": "countTick（本地合成 · UI）",
+      "id": "local:countTick",
+      "durSec": 0.08,
+      "onsetSec": 0,
+      "peakAtSec": 0.0004,
+      "peakDb": -4.44
+    }
+  ],
+  "stampHit": [
+    {
+      "file": "sfx-lib/epidemic/stampHit.wav",
+      "title": "stampHit（本地合成 · IMPACT）",
+      "id": "local:stampHit",
+      "durSec": 0.6,
+      "onsetSec": 0,
+      "peakAtSec": 0.0023,
+      "peakDb": -1.94
+    }
+  ],
+  "heroHit": [
+    {
+      "file": "sfx-lib/epidemic/heroHit.wav",
+      "title": "heroHit（本地合成 · IMPACT）",
+      "id": "local:heroHit",
+      "durSec": 2.4,
+      "onsetSec": 0,
+      "peakAtSec": 0.0194,
+      "peakDb": -0.92
+    }
+  ],
+  "revealSwell": [
+    {
+      "file": "sfx-lib/epidemic/revealSwell.wav",
+      "title": "revealSwell（本地合成 · TEX）",
+      "id": "local:revealSwell",
+      "durSec": 0.9,
+      "onsetSec": 0.007,
+      "peakAtSec": 0.4405,
+      "peakDb": -5.77
+    }
+  ],
+  "morphSlide": [
+    {
+      "file": "sfx-lib/epidemic/morphSlide.wav",
+      "title": "morphSlide（本地合成 · TEX）",
+      "id": "local:morphSlide",
+      "durSec": 0.6,
+      "onsetSec": 0.003,
+      "peakAtSec": 0.3462,
+      "peakDb": -7.09
+    }
+  ]
+}

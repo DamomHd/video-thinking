@@ -1,6 +1,6 @@
 # 珂勒惠支式反战木刻 · Kollwitz Anti-war Woodcut
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 3 条（OPUSCAR 98 纪念片里《西线无战事》All Quiet on the Western Front（1929/30）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 3 条（OPUSCAR 98 纪念片里《西线无战事》All Quiet on the Western Front（1929/30）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D·B&W）　**手法组合**：木刻版画 · 凯绥·珂勒惠支 · 德国表现主义 · 双版套印（Woodcut · Käthe Kollwitz · German Expressionism · Two-block colour print）

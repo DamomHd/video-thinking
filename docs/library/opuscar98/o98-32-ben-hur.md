@@ -1,6 +1,6 @@
 # 3D 大竞技场战车赛 · 65mm 史诗 · 3D Circus Chariot Race, 65mm Epic
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 32 条（OPUSCAR 98 纪念片里《宾虚》Ben-Hur（1959）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 32 条（OPUSCAR 98 纪念片里《宾虚》Ben-Hur（1959）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：3D（3D）　**手法组合**：程序生成 3D（three.js） · MGM Camera 65 宽银幕 · 特艺七彩印片调色 · 第二摄制组动作调度（Procedural 3D (three.js) · MGM Camera 65 widescreen · Technicolor print grade · Second-unit action staging）

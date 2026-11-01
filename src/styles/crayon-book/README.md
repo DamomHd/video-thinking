@@ -1,6 +1,6 @@
 # 蜡笔儿童绘本 · Crayon Picture Book
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：手绘与绘画（Hand-drawn & Painting）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：手绘与绘画（Hand-drawn & Painting）
 
 **一句话**：月亮失眠了，小女孩爬上屋顶给它唱摇篮曲。（The moon can't sleep, so a little girl climbs onto the roof to sing it a lullaby.）
 

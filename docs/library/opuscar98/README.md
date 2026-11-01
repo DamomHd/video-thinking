@@ -1,6 +1,6 @@
 # OPUSCAR 98 · 98 个片段风格（参考，不是风格库）
 
-> 来源：lemo-opuscar `styleboard/opuscar98_styles.json`（LemoLab，提示词 MIT、画面帧 CC BY 4.0，commit `413a6bd`）。上游纪念片里 98 部最佳影片各一段约 5 秒的画面，每段一个风格。
+> 来源：lemo-opuscar `styleboard/opuscar98_styles.json`（LemoLab，提示词 MIT、画面帧 CC BY 4.0，commit `f171360`）。上游纪念片里 98 部最佳影片各一段约 5 秒的画面，每段一个风格。
 > **不进风格库**（只有完整的风格才收录）：没有十一节说明，片子不能「选」它。用法：某一段画面想要这种质感时，读对应的 md，借提示词里的材质、配色、镜头做法写进决策单；其余（声音、坑、节奏）由模型自己补。电影名只是风格来源，片子里不出现原片的名字、角色、画面或音乐。
 
 | # | 风格 | Style | 渲染 | 手法组合 |

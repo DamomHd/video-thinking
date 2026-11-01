@@ -1,6 +1,6 @@
 # 红色窗花剪纸 · Red Paper-cut
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：东方传统（East Asian Traditions）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：东方传统（East Asian Traditions）
 
 **一句话**：除夕年兽进村，小女孩剪出的大窗花照亮全村，把它吓跑。（On New Year's Eve the beast Nian comes to town, and one girl's giant paper-cut lights up the village to scare it off.）
 

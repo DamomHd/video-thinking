@@ -1,6 +1,6 @@
 # 视觉调查 · Visual Investigation
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：新闻片、照片、证词和调查报告排上同一条时间轴，五路来源指向一处。（Newsreel, photos, testimony and the 1937 inquiry on one clock: five sources point to the same spot.）
 

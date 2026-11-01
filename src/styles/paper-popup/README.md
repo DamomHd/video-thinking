@@ -1,6 +1,6 @@
 # 纸片立体书 · Paper Pop-up Book
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：材质与 3D（Materials & 3D）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：材质与 3D（Materials & 3D）
 
 **一句话**：立体书在书桌上打开，小精灵 Pip 在纸片世界冒险，最后跳出书外。（A pop-up book opens on a desk; a sprite named Pip adventures through paper worlds and jumps out into ours.）
 

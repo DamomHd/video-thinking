@@ -1,6 +1,6 @@
 # 海军部海图铜版画 · Admiralty Sea Chart Copperplate
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 8 条（OPUSCAR 98 纪念片里《叛舰喋血记》Mutiny on the Bounty（1935）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 8 条（OPUSCAR 98 纪念片里《叛舰喋血记》Mutiny on the Bounty（1935）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：18 世纪海军部海图 · 铜版线刻 · 手工淡彩 · Robert Dodd 的版画（18th-century Admiralty chart · Copperplate engraving · Thin hand colouring · Robert Dodd's aquatint）

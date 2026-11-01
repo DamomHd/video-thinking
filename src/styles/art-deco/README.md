@@ -1,6 +1,6 @@
 # 装饰艺术 · Art Deco
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：1930 年的大饭店，门童赶在午夜前把一封信送上顶楼。（A grand hotel, 1930: a bellboy races lifts and revolving doors to deliver one letter before midnight.）
 

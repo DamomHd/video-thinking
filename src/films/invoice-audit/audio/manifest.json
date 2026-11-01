@@ -1,0 +1,123 @@
+{
+  "paperAtmos": [
+    {
+      "file": "sfx-lib/epidemic/paperAtmos.wav",
+      "title": "paperAtmos（本地合成 · BG）",
+      "id": "local:paperAtmos",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 12.796,
+      "peakDb": -13.36
+    }
+  ],
+  "highlightSweep": [
+    {
+      "file": "sfx-lib/epidemic/highlightSweep.wav",
+      "title": "highlightSweep（本地合成 · TEX）",
+      "id": "local:highlightSweep",
+      "durSec": 0.35,
+      "onsetSec": 0.003,
+      "peakAtSec": 0.1706,
+      "peakDb": -8.72
+    }
+  ],
+  "cardLand": [
+    {
+      "file": "sfx-lib/epidemic/cardLand.wav",
+      "title": "cardLand（本地合成 · UI）",
+      "id": "local:cardLand",
+      "durSec": 0.7,
+      "onsetSec": 0,
+      "peakAtSec": 0.0043,
+      "peakDb": -2.77
+    }
+  ],
+  "keyTap": [
+    {
+      "file": "sfx-lib/epidemic/keyTap.wav",
+      "title": "keyTap（本地合成 · UI）",
+      "id": "local:keyTap",
+      "durSec": 0.1341,
+      "onsetSec": 0,
+      "peakAtSec": 0.0012,
+      "peakDb": -4.65
+    }
+  ],
+  "revealLine": [
+    {
+      "file": "sfx-lib/epidemic/revealLine.wav",
+      "title": "revealLine（本地合成 · TEX）",
+      "id": "local:revealLine",
+      "durSec": 0.9,
+      "onsetSec": 0.01,
+      "peakAtSec": 0.5414,
+      "peakDb": -5.85
+    }
+  ],
+  "stageBed": [
+    {
+      "file": "sfx-lib/epidemic/stageBed.wav",
+      "title": "stageBed（本地合成 · BG）",
+      "id": "local:stageBed",
+      "durSec": 20,
+      "onsetSec": 0,
+      "peakAtSec": 0.453,
+      "peakDb": -20.74
+    }
+  ],
+  "frameChime": [
+    {
+      "file": "sfx-lib/epidemic/frameChime.wav",
+      "title": "frameChime（本地合成 · TEX）",
+      "id": "local:frameChime",
+      "durSec": 0.9,
+      "onsetSec": 0,
+      "peakAtSec": 0.003,
+      "peakDb": -5.41
+    }
+  ],
+  "stageHeavy": [
+    {
+      "file": "sfx-lib/epidemic/stageHeavy.wav",
+      "title": "stageHeavy（本地合成 · IMPACT）",
+      "id": "local:stageHeavy",
+      "durSec": 0.6,
+      "onsetSec": 0,
+      "peakAtSec": 0.008,
+      "peakDb": -1.94
+    }
+  ],
+  "twinStamp": [
+    {
+      "file": "sfx-lib/epidemic/twinStamp.wav",
+      "title": "twinStamp（本地合成 · UI）",
+      "id": "local:twinStamp",
+      "durSec": 0.6,
+      "onsetSec": 0,
+      "peakAtSec": 0.0081,
+      "peakDb": -1.94
+    }
+  ],
+  "countTick": [
+    {
+      "file": "sfx-lib/epidemic/countTick.wav",
+      "title": "countTick（本地合成 · UI）",
+      "id": "local:countTick",
+      "durSec": 0.08,
+      "onsetSec": 0,
+      "peakAtSec": 0.0004,
+      "peakDb": -4.44
+    }
+  ],
+  "logoStamp": [
+    {
+      "file": "sfx-lib/epidemic/logoStamp.wav",
+      "title": "logoStamp（本地合成 · IMPACT）",
+      "id": "local:logoStamp",
+      "durSec": 0.6,
+      "onsetSec": 0,
+      "peakAtSec": 0.0025,
+      "peakDb": -1.94
+    }
+  ]
+}

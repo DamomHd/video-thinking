@@ -1,6 +1,6 @@
 # 霍尔拜因都铎肖像油画 · Holbein Tudor Portrait in Oils
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 39 条（OPUSCAR 98 纪念片里《日月精忠》A Man for All Seasons（1966）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 39 条（OPUSCAR 98 纪念片里《日月精忠》A Man for All Seasons（1966）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：古典油画罩染 · 霍尔拜因《托马斯·莫尔爵士像》（1527） · 烛光都铎室内（Old Master oil glazing · Hans Holbein, Sir Thomas More (1527) · Candlelit Tudor interior）

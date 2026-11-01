@@ -1,0 +1,13 @@
+{
+  "layers": {
+    "MUSIC": 0,
+    "BG": -2,
+    "TEX": -1,
+    "RISER": 0,
+    "WHOOSH": 0,
+    "IMPACT": 0,
+    "UI": 0
+  },
+  "muted": [],
+  "master": 0
+}

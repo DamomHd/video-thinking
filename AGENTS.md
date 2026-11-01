@@ -14,16 +14,17 @@
 - **对标基准是 `architecture.html`**（LoomCare/create-video 的架构文档；第三方文档，**只放本机、不进 git**，换机时自己拷），不是参考成片。说"能力对标"时逐章对照它，而且要同时核实两件事：**存在**（文件在）和**可用**（实际渲过、被用过）。
 - **片子按目录自动发现**（2026-10-27）：每部片自带 `film.json`（id / 片名 / 帧率 / 宽高）和 `root.tsx`（给 Remotion 的幕表、画面、真值、额外合成），引擎扫描 `src/films/*` 登记，约定见 `shared/film-root.ts`；`vw init` 会自动生成这两个文件。竖屏片在 `film.json` 里写 1080×1920。真实业务数据的片子（`src/films/anlan-*`）在 `.gitignore` 里排除，只留在本机——没有它们其余部分照样编得过，新增这类片子在 `.gitignore` 里加一行。
 - **补工程能力时不改已出的片子。**`src/films/` 下的 anlan-report、us、us-paper 是已出的片子。补能力只动通用层：`src/shared`、`src/components`、`src/styles`、`scripts`、`blender`、`tools`。验证用单元测试和**内容中性**的探针（`src/probe/`），不要拿某部片的文案或素材做探针。发现已出片子的问题，报告给用户，由用户决定改不改。
-- **内容先于形式**（2026-10-27 用户定：这是视频最基础最核心的能力）：做片先定「这段时长里讲哪些核心信息」——受众要带走的一句话、最多三个支撑点、按时长算的信息容量、删掉了什么和为什么；脚本先能单独讲通，再选风格和画法。风格装不下核心信息时直说，不让形式决定讲什么。
+- **内容先于形式**（2026-10-27 用户定：这是视频最基础最核心的能力）：做片先定「这段时长里讲哪些核心信息」——受众要带走的一句话、最多三个支撑点、按时长算的信息容量、删掉了什么和为什么；脚本先能单独讲通，再选风格和画法。风格装不下核心信息时直说，不让形式决定讲什么。**这条适用于信息型片**（讲解、汇报、产品、资讯）；音乐视觉、诗词意境、氛围、品牌情绪这类**感受型片**在决策单「内容策划」里声明 `片型：感受型`，改写「感受线」（观众起点感受 → 终点感受，靠什么推进），`vw brief` / `vw review` 不再查信息容量、结论位置和读点；**两者都有的写 `片型：混合；感受段：<起–止s、…>`**，感受段不要求承载信息点，其余按信息型检查（2026-10-29 用户定：工程提供基础能力，不应完全约束）。流程也分**轻量档 / 完整档**（见 SKILL.md）：局部改动不走满整套仪式。
 - **设计不设限**：模型足够强，画面怎么设计（语言、构图、动效、光、材质、深度、声音）由模型按内容自由发挥；`docs/method/`、`docs/library/` 是参考不是规则，设计评审是自查不是关卡。**只有片子沿用了风格库里的风格时，才按那个风格约束。**
 - **风格库**（`src/styles/<id>/`）有两个来源，片子都是**默认不选**、由模型按内容在自己的 `theme.ts` 里设计主题：
-  - **收录的风格**：lemo-opuscar 的 59 个完整风格（2026-10-26 用户决定整份原文进库）。**只有完整的风格才进库**（2026-10-27 用户定）：OPUSCAR 98 的 98 个片段风格只作参考，放在 `docs/library/opuscar98/`，片子不能选它当风格。每个风格目录有 `STYLE.md` 原文（材质、配色逻辑、字体、动效、镜头、声音、原生手法、坑）、`DEMO.md`、`README.md`、`style.ts`（只用现有字段：色板、字体）、`refs/`。**片子选了某个收录风格，就按它的 STYLE.md 全部约束做**（配色守的是原文的配色逻辑，具体色值由模型按片子需要定，`style.ts` 的色板只是参考）；样片源码用 `vw style demo <id>` 取来读。由 `scripts/style/import-opuscar.ts` 生成，不手改（要改就重跑导入）。
+  - **收录的风格**：lemo-opuscar 的 66 个完整风格（2026-10-26 用户决定整份原文进库）。**只有完整的风格才进库**（2026-10-27 用户定）：OPUSCAR 98 的 98 个片段风格只作参考，放在 `docs/library/opuscar98/`，片子不能选它当风格。每个风格目录有 `STYLE.md` 原文（材质、配色逻辑、字体、动效、镜头、声音、原生手法、坑）、`DEMO.md`、`README.md`、`style.ts`（只用现有字段：色板、字体）、`refs/`。**片子选了某个收录风格，就按它的 STYLE.md 全部约束做**（配色守的是原文的配色逻辑，具体色值由模型按片子需要定，`style.ts` 的色板只是参考）；样片源码用 `vw style demo <id>` 取来读。由 `scripts/style/import-opuscar.ts` 生成，不手改（要改就重跑导入）。
   - **自有风格**：两条路。① 用户认可某部片的样子后，`vw style save <片> --id=…` 沉淀，产出和工坊进库的风格同一套结构（style.ts、README、STYLE.md 十一节骨架、CHANGES.md、refs 里的海报 / 样片软链 / 参考帧），STYLE.md 由模型按成片写满、再补 `refs/styleframe.png`。② 用户要把某个风格改成自己的、或从空白做一个：按 `docs/method/style-workshop.md` 一起定方案，`vw style fork` 起草稿（`out/style-drafts/`）→ 风格帧并排对比 → 样片 → 用户点头 `vw style keep` 进库（带完整 STYLE.md 和 CHANGES.md）。
   - **风格库的规范要统一**（2026-10-27 用户定，方便后续维护迭代）：自有风格进库前走完工坊全流程——草稿只在 `out/style-drafts/`；风格帧由样片 `src/films/<id>-test/`（有 `film.json` + `root.tsx`，引擎自动登记）用 `vw still` 渲出，不另注册单帧合成；样片过 `vw check`、出片、`vw review`；`refs/` 只放 `poster.jpg`、`styleframe.png`、参考帧 `ref-<秒>s.jpg` 和样片 `demo.mp4`（大文件软链到原片，不复制），不留重复图；`style.ts` 的键名和 STYLE.md 里写的一致。
   - **质量标准是设计本身（`docs/method/taste.md`），不是像不像某部参考片**；参考片只用来学为什么好（`docs/library/exemplars/`）。
+- **借鉴外部工程时，方法和工具一起收**（2026-10-28 配乐教训）：只收 lemo 的采样器、不收它「每部片原创写谱」的做法，再用一个通用模板顶替创作，结果每部片的配乐都是同一首。凡是创作环节（画面、镜头、配乐、音色），工程只给引擎，不给写死内容的生成器；要偏离上游的做法，在 `docs/library/adaptation.md` 写清理由，并核对偏离之后会不会让每部片长得一样。
 - **不能擅自扩展配置体系。**在已有配置里新增内容时，先对齐复用现有字段。确实需要新字段、新 schema、新的一套配置时，先给用户方案，确认后再做。例子：风格库是先给方案、确认后才建的。
 - **新增第三方依赖只用发布满两周的版本，并锁定精确版本**（`package.json` 不写 `^`；Python 依赖同理，锁在 `vendor/lemo-opuscar/requirements.txt`）。
-- **Python 环境**：`.venv`（Python 3.11，`vw py setup`）只给 lemo-opuscar 的声音工具用（采样配乐、配音、转写核对）；大文件素材（采样库、Kokoro / Whisper 模型）一律在 `out/opuscar/`，由 `vw py fetch …` 下载校验，不进源码目录。
+- **Python 环境**：`.venv`（Python 3.11，`vw py setup`）只给 lemo-opuscar 的声音工具用（采样配乐、配音、转写核对）；采样库五个都要下全（`vw py fetch instruments vsco2ce|vcsl|freepats|karoryfer|salamander`，共 97 件乐器；缺库时用到的乐器渲染直接报错）；大文件素材（采样库、Kokoro / Whisper 模型）一律在 `out/opuscar/`，由 `vw py fetch …` 下载校验，不进源码目录。
 - **Epidemic 密钥只放在 `.env`**（已 gitignore，权限 600），**绝不打印**到输出或日志里，验证时最多回显前缀和长度。这个 key 能搜索，但没有下载原始素材的权限，音效和配乐目前走本地合成（`--local`）。
 - **CC0 音效来源**（`scripts/epidemic/cc0.ts`）：Freesound（`FREESOUND_API_KEY` / `FREESOUND_CLIENT_ID` 同样只放 `.env`，key 经标准输入交给 curl 请求头，不进命令行参数）和 Kenney 音效包（`vw sfx kenney sync`，下到 `out/kenney/`）。只收 CC0：检索过滤之外再核一遍许可证，Kenney 包的 License.txt 不是 CC0 整包不收。Freesound 做过一次 OAuth2 授权（`vw sfx freesound auth`）后取原始文件，令牌存 `.env.freesound-oauth.json`（被 `.env.*` 忽略、权限 600，过期自动续期），没授权退回 HQ 预览。落定时 manifest 记 source / license / url / author，`vw review` 核对。候选池可混多个来源，落定按候选自己的来源取回（`providerForCandidate`）。配乐也能从 Freesound 取（`scripts/epidemic/cc0-music.ts`，`vw music match --source=freesound --brief=…`）：拆词检索、标签过滤、下载预览自己分析打分、取原文件剪到段长并钉高潮；曲目来源和许可证记在 `music.json` 的 `track.source / license / url`，`vw review` 一起核对。
 - **版本管理**：git，远程是 GitHub **私有**仓库（2026-10-27 起）。代码、文档、真值 JSON、字体、小素材进 git；大媒体不进（`.gitignore`：生成的配乐和音效 WAV、口播 WAV、`public/archive/` 封存旧版、仓库根目录的参考成片 mp4、`out/`、`.venv/`、`.env*`）——**这些文件删除或覆盖之前仍要先备份**（放到 scratchpad）。提交和推送只在用户要求时做。
@@ -50,7 +51,7 @@ npx tsx bin/vw.ts --help # 统一命令行 vw（别名 om）
 | 交付清单 | `vw credits <片>`（出片时自动生成 `out/<片>/CREDITS.md`；海报图 `poster.jpg` 也是出片时自动出） |
 | 分镜（用户要了才做） | `vw storyboard <片> --shots=<json>` → `out/<片>/storyboard.png` |
 | 风格索引 / 总览页（挑风格时给用户） | `vw style index` → `src/styles/README.md`；`vw style gallery --open` → `out/styles/gallery.html`（带海报，点开看说明） |
-| 按片作曲（网格先行） | 片子写 `audio/score.ts`（`shared/score` 的 `defineScore`）→ `vw music score <片>`（写回 music.json、对拍清成恒等）→ `vw check` 查拍点在网格上 |
+| 按片作曲（配乐缺省） | 片子写 `audio/score.ts`（`shared/score` 的 `defineScore`；画面先行 `grid.lock: false` + `g.hit(id)`，或网格先行）→ `vw music score <片>`（写回 music.json、对拍清成恒等）→ 网格先行时 `vw check` 查拍点在网格上 |
 | 采样配乐 / 配音 | `vw music match <片> --local --sampled[=cinematic\|mallets\|chamber] [--bpm=108\|100-112]`（风格规定了速度就用 --bpm 限定范围）；`vw voice tts\|check\|srt …`；环境与素材 `vw py setup`、`vw py fetch instruments <库>\|voice` |
 | 运动 / 闪帧分析 | `vw motion <片\|mp4>`、`vw qa flicker <片>` |
 | 改版前封存 / 新旧对比 | `vw archive save <片> --label=` → Studio 里看 `<片>-Compare-<标签>` |
@@ -87,7 +88,7 @@ scripts/py/                  Python 工具链的入口（环境、素材下载�
 public/vendor/claude-animation-base/  收录的笔刷手绘引擎（ClaudeAnimationBase，MIT；p5 / p5.brush 副本须与锁定的 npm 版本一致，见 NOTICE.md）：classic script，由 components/paint/load.ts 按上游顺序注入渲染页；不改这里
 src/vendor/opuscar-dataviz/   收录的数据叙事引擎（lemo-opuscar dataviz 样片的 engine.js + core/lib.js，MIT，见 NOTICE.md）：纸、2D 相机、铅笔、手写、数据点、形变；由 components/dataviz/DataCanvas 每帧调用；不改这里
 src/vendor/huashu-clip/       收录的画法引擎（huashu-motion，MIT，见 NOTICE.md）：原样的浏览器全局脚本，只由 components/clip/load.ts 在渲染端加载；不改这里，要改行为改 components/clip/
-src/styles/<id>/             风格库：自有风格（事后沉淀，只定气质：style.ts + README.md + refs/）+ 收录的 lemo-opuscar 59 个风格（多一份 STYLE.md 原文、DEMO.md；登记在 opuscar.ts，导入脚本生成）。注册在 src/styles/index.ts
+src/styles/<id>/             风格库：自有风格（事后沉淀，只定气质：style.ts + README.md + refs/）+ 收录的 lemo-opuscar 66 个风格（多一份 STYLE.md 原文、DEMO.md；登记在 opuscar.ts，导入脚本生成）。注册在 src/styles/index.ts
 src/probe/                   独立 Remotion 入口：内容中性的验收探针 + 风格样张
 scripts/                     guard（守门）· render（出片 / 封存）· spot / sync / music / composer / epidemic（声音平台）
                              blender · hybrid（拼接）· hw（硬件档位）· style
@@ -114,7 +115,7 @@ out/                         产物与缓存（gitignore）
 - 一律用秒和幕表（`buildPlan`）。拍点、音效、配乐都以秒存，只在挂载时换算成帧。
 - 幕内编舞用**乐谱秒**；外部视频片段按**放映秒**播放，`FilmClockContext` 负责换算。
 - 对拍会拉伸画面时间，所以成片时长可能和幕表总长不同。
-- **配乐两条路**：画面先行（`vw music match`，配乐去适配、弹性对拍拉伸画面）或网格先行（`audio/score.ts` + `vw music score`，模型为这部片逐音符写谱，画面落点全从网格取，不拉伸）。网格先行的片子 `vw check` 会拦不在网格上的拍点（容差 1 帧）。拨弦物理建模（`pluck:<preset>`）要 numba：Intel Mac 上能装的 numba 要求 numpy < 2.4，和锁的 numpy 2.4.6 冲突，这台机器上用采样乐器或 `synth:pluck` 代替。
+- **配乐每部片原创**（2026-10-28 用户定：每部片不能是固定的配乐）：缺省写 `audio/score.ts` + `vw music score`，模型为这部片逐音符写谱、定调性 / 和声 / 动机 / 配器——画面先行（`grid.lock: false`，`g.hit(id)` 贴着画面拍点和动作事件写）或网格先行（画面落点从网格取，`vw check` 拦不在网格上的拍点，容差 1 帧），两种都不拉伸。`vw music match --local` 是通用模板（固定的调、和弦进行、段落、鼓型），只作兜底，`vw review` 报警；外部曲目走 `vw music match --source=freesound`（配乐去适配、弹性对拍拉伸画面）。拨弦物理建模（`pluck:<preset>`）要 numba：Intel Mac 上能装的 numba 要求 numpy < 2.4，和锁的 numpy 2.4.6 冲突，这台机器上用采样乐器或 `synth:pluck` 代替。
 
 **声音**：
 - **动作事件表 → 自动配声**：片子把画面动作登记成 `MotionEvent`（`shared/events.ts`），适配器实现 `events()`、用 `autoSpots(events, 声音映射表)` 生成音效；没配声、也没写 `silent` 理由的事件 `vw check` 直接报错。不要再手写一条条音效。

@@ -1,6 +1,6 @@
 # 瑞士动态排版 · Swiss Motion Graphics
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：一张音乐会海报按瑞士设计的五条规则自己排版，第五条是只打破一条。（A concert poster lays itself out by five Swiss design rules; the fifth is to break just one.）
 

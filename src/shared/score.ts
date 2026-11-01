@@ -1,8 +1,11 @@
 /**
- * 配乐网格先行（按片作曲）：先定配乐网格，画面锁在网格上，模型为这部片逐音符写谱。
+ * 按片作曲：模型为这部片逐音符写谱（lemo-opuscar 每部样片的 mix.py 都是这样做的）。两种写法：
+ *   · 网格先行（grid.lock 缺省 true）：先定配乐网格，画面锁在网格上
+ *   · 画面先行（grid.lock: false）：画面已经排好，谱贴着画面上有名字的时刻写——g.hit('拍点或动作事件 id')
+ *     取那一刻的秒数（lemo 的 HIT['lightOn']），vw check 不要求拍点在网格上；网格只给律动和段落用
  *
- * 和「画面先定、配乐去适配」（vw music match：本地作曲 / 曲库改编 + 弹性对拍拉伸画面）是两条路，决策单「节奏」里写走哪条。
- * 这条路的做法（借鉴 lemo-opuscar DIRECTOR §7、TECHNIQUE §3、§5）：
+ * 和 vw music match（通用模板作曲 / 曲库改编 + 弹性对拍拉伸画面）不同，这里每部片的调性、和声、动机、配器、律动都由模型按内容定。
+ * 网格先行的做法（借鉴 lemo-opuscar DIRECTOR §7、TECHNIQUE §3、§5）：
  *   1. 片子写 audio/score.ts：defineScore({ grid, notes(g) })——网格（速度、拍号、调、按小节分段）是全片唯一的时间来源
  *   2. 画面的每个落点从 g.sec(段, 小节, 拍) 取；成组元素踩 g.beatGrid()（和 shared/beats 同一种 BeatGrid）
  *   3. notes(g) 用代码生成音符事件（循环、琶音、按数据发声都行），乐器按风格的声音调色板挑
@@ -28,6 +31,8 @@ export interface ScoreGridSpec {
   sections: ScoreSection[];
   /** 第一小节从第几秒开始（前面留一点空），缺省 0 */
   startSec?: number;
+  /** 画面是否锁在网格上：缺省 true（网格先行，vw check 查拍点在网格上）；false = 画面先行，谱用 g.hit() 贴着画面写 */
+  lock?: boolean;
 }
 
 /**
@@ -81,13 +86,17 @@ export interface ScoreGrid {
   degree(n: number, octave?: number): number;
   /** 以第 n 级为根的三和弦（调内）MIDI 号 */
   triad(n: number, octave?: number): [number, number, number];
+  /** 画面上有名字的时刻（拍点 id、动作事件 id → 乐谱秒），vw music score 从适配器的 hits() / events() 取 */
+  moments: Record<string, number>;
+  /** 某个画面时刻的秒数；没有这个 id 就报错并列出有哪些 */
+  hit(id: string): number;
 }
 
 const MAJOR = [0, 2, 4, 5, 7, 9, 11];
 const MINOR = [0, 2, 3, 5, 7, 8, 10];
 const r4 = (v: number) => Math.round(v * 10000) / 10000;
 
-export function scoreGrid(spec: ScoreGridSpec): ScoreGrid {
+export function scoreGrid(spec: ScoreGridSpec, moments: Record<string, number> = {}): ScoreGrid {
   if (!(spec.bpm > 0)) throw new Error('score: bpm 要大于 0');
   if (!spec.sections.length) throw new Error('score: 至少要有一段');
   const ids = new Set<string>();
@@ -142,6 +151,11 @@ export function scoreGrid(spec: ScoreGridSpec): ScoreGrid {
     },
     degree,
     triad: (n, octave = 4) => [degree(n, octave), degree(n + 2, octave), degree(n + 4, octave)],
+    moments,
+    hit: (id) => {
+      if (!(id in moments)) throw new Error(`score: 画面上没有时刻 ${id}（有：${Object.keys(moments).slice(0, 20).join('、') || '无——vw music score 从适配器的 hits() / events() 取'}）`);
+      return moments[id];
+    },
   };
 }
 
@@ -149,9 +163,17 @@ export function defineScore(def: ScoreDef): ScoreDef {
   return def;
 }
 
+/** 画面上有名字的时刻（纯函数）：拍点取 sec，动作事件取落定时刻（land，缺省 at）；同名时动作事件优先 */
+export function filmMoments(hits: { id: string; sec: number }[], events: { id: string; at: number; land?: number }[] = []): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const h of hits) out[h.id] = h.sec;
+  for (const e of events) out[e.id] = e.land ?? e.at;
+  return out;
+}
+
 /** 渲染前的整理：按时间排序、夹住范围、检查明显的错（纯函数，vw music score 用） */
-export function scoreEvents(def: ScoreDef): { grid: ScoreGrid; notes: ScoreNote[]; durSec: number; problems: string[] } {
-  const grid = scoreGrid(def.grid);
+export function scoreEvents(def: ScoreDef, moments: Record<string, number> = {}): { grid: ScoreGrid; notes: ScoreNote[]; durSec: number; problems: string[] } {
+  const grid = scoreGrid(def.grid, moments);
   const durSec = r4(grid.endSec + (def.tailSec ?? 2));
   const problems: string[] = [];
   const notes = def

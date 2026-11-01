@@ -1,6 +1,6 @@
 # 纸雕灯影 · Paper-cut Lightbox
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：东方传统（East Asian Traditions）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：东方传统（East Asian Traditions）
 
 **一句话**：一枚月饼讲中秋的团圆与思念，纸雕灯箱层层透光。（A single mooncake tells the Mid-Autumn story of reunion and longing inside a glowing paper-cut lightbox.）
 

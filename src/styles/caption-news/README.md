@@ -1,6 +1,6 @@
 # 字幕新闻 · Caption News
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：美国一年死掉 130 万箱蜜蜂，总数却涨了 6%：静音也能看懂的新闻。（America lost 1.3 million bee colonies, yet the count rose 6 %: a news short that works with the sound off.）
 

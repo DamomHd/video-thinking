@@ -1,6 +1,6 @@
 # 60s 间谍片头 · 60s Spy Title Sequence
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：虚构 1964 年间谍片的片头：追一把被偷的钥匙，几何碎片最后拼成片名。（Opening titles for an imaginary 1964 spy film: a chase for a stolen key until the shapes lock into the title.）
 

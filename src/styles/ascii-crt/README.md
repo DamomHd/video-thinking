@@ -1,6 +1,6 @@
 # ASCII / CRT 终端 · ASCII / CRT Terminal
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：图形与排版（Graphic & Type）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：图形与排版（Graphic & Type）
 
 **一句话**：月球基地的 AI 沉睡 40 年后被唤醒，用字符画出“家”来回复。（A moon-base AI wakes after forty years to a signal from Earth, and replies by drawing “home” in characters.）
 

@@ -1,6 +1,6 @@
 # 皮影戏 · Shadow Puppetry
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：东方传统（East Asian Traditions）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：东方传统（East Asian Traditions）
 
 **一句话**：十日炙烤大地，后羿张弓射日。（Ten suns scorch the earth until the archer Hou Yi draws his bow, told with leather puppets on a lit screen.）
 

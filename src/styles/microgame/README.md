@@ -1,6 +1,6 @@
 # 微游戏快闪 · Microgame Frenzy
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：游戏（Games）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：游戏（Games）
 
 **一句话**：见习宇航员闯五秒训练营，越来越快，Boss 关亲手降落回地球。（A clumsy cadet survives a five-second boot camp, faster and faster, until the boss: landing home.）
 

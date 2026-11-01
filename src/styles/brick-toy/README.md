@@ -1,6 +1,6 @@
 # 积木玩具 · Brick Toy
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：材质与 3D（Materials & 3D）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：材质与 3D（Materials & 3D）
 
 **一句话**：积木宇航员用零件拼出火箭，飞向积木月亮。（A brick astronaut builds a rocket from spare parts and flies to a brick moon.）
 

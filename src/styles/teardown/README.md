@@ -1,6 +1,6 @@
 # 产品拆解 · Exploded Teardown
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：开源键盘的一半在一次环绕中逐层拆开，看到主控再合拢，标上真实尺寸。（Half an open-source keyboard comes apart in one orbit, down to the chip, then closes with its real dimensions.）
 

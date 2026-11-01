@@ -1,6 +1,6 @@
 # 报纸活字印刷 + 线刻插图 · Newsprint Letterpress and Line Engraving
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 10 条（OPUSCAR 98 纪念片里《左拉传》The Life of Emile Zola（1937）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 10 条（OPUSCAR 98 纪念片里《左拉传》The Life of Emile Zola（1937）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D·B&W）　**手法组合**：木活字大标题 · 新闻纸活字印刷 · 1890 年代线刻（Wood-type headline · Letterpress on newsprint · 1890s line engraving）

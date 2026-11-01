@@ -1,4 +1,4 @@
-> 原文：lemo-opuscar `styles/newsreel/STYLE.md`（LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库风格库，未改动。
+> 原文：lemo-opuscar `styles/newsreel/STYLE.md`（LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库风格库，未改动。
 > 在本工程里怎么落地（引擎换算、样片源码怎么取）见同目录 README.md 和 docs/library/adaptation.md §11。
 
 # 1920s Newsreel — Style Prompt

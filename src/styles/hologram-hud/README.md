@@ -1,6 +1,6 @@
 # 科幻全息界面 · Sci-fi Hologram HUD
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：信息与发布（Information & Keynote）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：信息与发布（Information & Keynote）
 
 **一句话**：电助力车被扫描成全息线框，目标框依次锁定电池、电机、刹车。（An e-bike is scanned into a hologram; target boxes lock onto the battery, motor and brakes.）
 

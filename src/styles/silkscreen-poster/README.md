@@ -1,6 +1,6 @@
 # 丝印旅行海报 · Silkscreen Travel Poster
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：印刷与版画（Print & Printmaking）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：印刷与版画（Print & Printmaking）
 
 **一句话**：三条步道各一张丝印海报，一色一刮印出来，再沿山脊一镜到底从正午爬到黄昏。（Three trail posters are screen-printed one ink at a time, then climbed in one long take from noon to dusk.）
 

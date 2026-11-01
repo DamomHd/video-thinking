@@ -1,6 +1,6 @@
 # 构成主义蒙太奇 · Constructivist Montage
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：剪辑与纪实（Edit & Documentary）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：剪辑与纪实（Edit & Documentary）
 
 **一句话**：帝国大厦的小册子写着建造者，工地实拍和老照片给出答案：每天 2,500 人。（The Empire State's 1931 brochure credits its builders; the site film and Hine's photos answer: 2,500 a day.）
 

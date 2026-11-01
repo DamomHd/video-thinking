@@ -1,6 +1,6 @@
 # 沃霍尔照片丝网 · Double Elvis · Warhol Photo-Silkscreen, Double Elvis
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 42 条（OPUSCAR 98 纪念片里《午夜牛郎》Midnight Cowboy（1969）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 42 条（OPUSCAR 98 纪念片里《午夜牛郎》Midnight Cowboy（1969）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：2D（2D）　**手法组合**：照片丝网印 · 沃霍尔《Double Elvis》（1963） · 银漆底 · 错位色块（Photo silkscreen · Andy Warhol, Double Elvis (1963) · Silver paint ground · Off-register colour blocks）

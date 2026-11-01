@@ -1,6 +1,6 @@
 # 卫星简报 · Satellite Briefing
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：卫星照着地图去找咸海，找到的是沙漠；只有筑了坝的那一块回来了。（A satellite follows the map to the Aral Sea and finds a desert; only the part someone dammed came back.）
 

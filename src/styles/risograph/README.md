@@ -1,6 +1,6 @@
 # Risograph 孔版印刷 · Risograph Print
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：印刷与版画（Print & Printmaking）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：印刷与版画（Print & Printmaking）
 
 **一句话**：周日早晨骑车穿过城市：面包店、公园、河边，每到一处加一版油墨，最后三版套印。（A Sunday-morning bike ride through the city — bakery, park, riverside — each stop adding an ink until three misregistered plates overprint.）
 

@@ -6,6 +6,7 @@
  *   · 结构：恰好一个结论、支撑点不超过 3 个、每个支撑点至少一个证据
  *   · 时间：结论在前 1/4 出现、每个点在屏幕上停够读完、每个支撑点占多少秒、多长时间没有承载任何信息点
  *   · 纸面稿：口播和屏幕上的字按时间排成一份稿子——不看画面也要能讲通那一句话
+ *   · 事实溯源（verify.ts）：屏幕字和口播里的数字要能在决策单「事实清单」里找到出处
  *   · 结构（structure.ts）：前 3 秒有没有信息点、配乐高潮那一刻落下的是哪个信息点
  * 只给提示（vw review 汇总），不拦出片。纯函数在前，读文件的入口在最后。
  */
@@ -13,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { ReviewItem } from './review.js';
 import { planStructureReview, climaxesOf } from './structure.js';
+import { factTrace } from './verify.js';
 
 export const VO_CHARS_PER_SEC = 4;
 export const VO_FILL = 0.85;
@@ -73,18 +75,92 @@ export interface VoLine {
   durSec?: number;
 }
 
+export type FilmKind = '信息型' | '感受型' | '混合';
+export type Span = [number, number];
+export interface KindDecl {
+  /** null = 决策单没声明片型 */
+  kind: FilmKind | null;
+  /** 混合片的感受段（乐谱秒）：这些时段不要求承载信息点 */
+  spans: Span[];
+}
+
+/** 取决策单「内容策划」一节里某个「- 名称（说明）：值」的值（纯函数）；说明括号里可以有冒号 */
+export function fieldOf(director: string, name: string): string | undefined {
+  const i = director.indexOf('## 内容策划');
+  if (i < 0) return undefined;
+  const rest = director.slice(i + 1);
+  const j = rest.search(/\n## /);
+  const sec = j < 0 ? rest : rest.slice(0, j);
+  const line = sec.split('\n').find((l) => new RegExp(`^\\s*-\\s*${name}`).test(l));
+  if (!line) return undefined;
+  const bare = line.replace(/（[^）]*）|\([^)]*\)/g, '');
+  const k = bare.search(/[：:]/);
+  return k < 0 ? undefined : bare.slice(k + 1).replace(/\*/g, '').trim();
+}
+
+/** 片型声明（纯函数）：信息型 / 感受型 / 混合（混合要在「感受段」写时间段，如 0–8s、30–40s；写了感受段没写片型也按混合） */
+export function kindOf(director: string): KindDecl {
+  const declared = fieldOf(director, '片型')?.match(/信息型|感受型|混合/)?.[0] as FilmKind | undefined;
+  // 感受段可以单独一行，也可以跟在片型后面（「混合；感受段：0–6s、30–40s」）
+  const segText = (director.split('\n').map((l) => l.replace(/（[^）]*）|\([^)]*\)/g, '').match(/感受段\s*[：:]\s*(.*)$/)?.[1]).find(Boolean)) ?? '';
+  const spans = [...segText.matchAll(/(\d+(?:\.\d+)?)\s*s?\s*[-–—~到至]\s*(\d+(?:\.\d+)?)/g)]
+    .map((m): Span => [Number(m[1]), Number(m[2])])
+    .filter(([a, b]) => b > a);
+  return { kind: declared ?? (spans.length ? '混合' : null), spans };
+}
+
+/** 没声明按信息型 */
+export const filmKindOf = (director: string): FilmKind => kindOf(director).kind ?? '信息型';
+
+/** 感受段合并后的总秒数（落在 0..totalSec 内）（纯函数） */
+export function spanSec(spans: Span[], totalSec: number): number {
+  const sorted = spans.map(([a, b]): Span => [Math.max(0, a), Math.min(totalSec, b)]).filter(([a, b]) => b > a).sort((x, y) => x[0] - y[0]);
+  let sum = 0;
+  let end = 0;
+  for (const [a, b] of sorted) {
+    sum += Math.max(0, b - Math.max(a, end));
+    end = Math.max(end, b);
+  }
+  return sum;
+}
+
+/** t 秒之前（含）有多少秒在感受段里（纯函数）：把全片时间换算成「只数信息段」的有效时间 */
+export function feelSecBefore(spans: Span[], t: number): number {
+  return spanSec(spans.map(([a, b]): Span => [a, Math.min(b, t)]), t);
+}
+
+export const inSpans = (spans: Span[], t: number) => spans.some(([a, b]) => t >= a && t < b);
+
+/** 感受型 / 混合片的内容策划检查（纯函数）：不要求感受段里有信息点，只要求写清观众的感受怎么走 */
+export function feelingCheck(director: string, totalSec = 0): ReviewItem[] {
+  const T = '内容策划';
+  const { kind, spans } = kindOf(director);
+  const line = fieldOf(director, '感受线');
+  const head: ReviewItem = kind === '混合'
+    ? { level: spans.length ? 'ok' : 'hint', topic: T, text: spans.length ? `片型：混合——感受段 ${spans.map(([a, b]) => `${a}–${b}s`).join('、')}${totalSec ? `（共 ${spanSec(spans, totalSec).toFixed(1)}s）` : ''}，这些时段不要求承载信息点；其余按信息型检查` : '片型写了混合，但「感受段」没写时间段（如 0–8s、30–40s）——工程不知道哪几段不用查信息点' }
+    : { level: 'ok', topic: T, text: '片型：感受型——不查信息容量、结论位置和读点；工程只给基础能力，画面怎么走由内容决定' };
+  return [
+    head,
+    line
+      ? { level: 'ok', topic: T, text: `感受线：${line}` }
+      : { level: 'hint', topic: T, text: '感受型 / 混合片要在「内容策划」写清「感受线」：观众起点感受 → 终点感受，靠什么推进（意象、音乐、空间、节奏）' },
+  ];
+}
+
 /** 内容策划检查（纯函数） */
-export function briefCheck(rows: BriefRow[], totalSec: number, vo: VoLine[] = []): ReviewItem[] {
+export function briefCheck(rows: BriefRow[], totalSec: number, vo: VoLine[] = [], spans: Span[] = []): ReviewItem[] {
   const out: ReviewItem[] = [];
   const T = '内容策划';
   if (!rows.length) return [{ level: 'warn', topic: T, text: '决策单没有「内容策划」信息表（层级 / 信息点 / 起 / 止 / 承载）——先定这段时长讲哪些核心信息，再选风格和画面' }];
 
   const concl = rows.filter((r) => r.level === '结论');
   const sup = rows.filter((r) => r.level === '支撑');
-  const maxPoints = Math.max(2, Math.floor(totalSec / SEC_PER_POINT));
+  // 混合片：感受段不算信息容量；结论出现时刻换算成「只数信息段」的有效时间
+  const infoSec = totalSec - spanSec(spans, totalSec);
+  const maxPoints = Math.max(2, Math.floor(infoSec / SEC_PER_POINT));
   const voBudget = Math.round(totalSec * VO_CHARS_PER_SEC * VO_FILL);
 
-  out.push({ level: 'ok', topic: T, text: `${totalSec.toFixed(1)}s 的容量：结论 + 支撑最多 ${maxPoints} 个读点、口播最多约 ${voBudget} 字` });
+  out.push({ level: 'ok', topic: T, text: `${totalSec.toFixed(1)}s${infoSec < totalSec ? `（信息段 ${infoSec.toFixed(1)}s）` : ''} 的容量：结论 + 支撑最多 ${maxPoints} 个读点、口播最多约 ${voBudget} 字` });
 
   // 结构
   if (concl.length !== 1) out.push({ level: 'warn', topic: T, text: `结论要恰好 1 个（现在 ${concl.length} 个）：看完只能记住一句话` });
@@ -102,14 +178,16 @@ export function briefCheck(rows: BriefRow[], totalSec: number, vo: VoLine[] = []
   // 时间
   const bad = rows.filter((r) => !(r.to > r.from) || r.from < 0 || r.to > totalSec + 0.01);
   if (bad.length) out.push({ level: 'warn', topic: T, text: `起止不对（要 0 ≤ 起 < 止 ≤ ${totalSec.toFixed(1)}）：${bad.map((r) => r.point).join('、')}` });
-  if (concl[0] && concl[0].from > totalSec / 4) out.push({ level: 'warn', topic: T, text: `结论 ${concl[0].from}s 才第一次出现（全片 ${totalSec.toFixed(0)}s）——放进前 1/4（${(totalSec / 4).toFixed(1)}s 内），后面的都是在证明它` });
-  else if (concl[0]) out.push({ level: 'ok', topic: T, text: `结论 ${concl[0].from}s 出现（前 1/4 内）` });
+  const conclEff = concl[0] ? concl[0].from - feelSecBefore(spans, concl[0].from) : 0;
+  if (concl[0] && conclEff > infoSec / 4) out.push({ level: 'warn', topic: T, text: `结论 ${concl[0].from}s 才第一次出现（${infoSec < totalSec ? `信息段 ${infoSec.toFixed(0)}s，扣掉前面的感受段后是 ${conclEff.toFixed(1)}s` : `全片 ${totalSec.toFixed(0)}s`}）——放进前 1/4（${(infoSec / 4).toFixed(1)}s 内），后面的都是在证明它` });
+  else if (concl[0]) out.push({ level: 'ok', topic: T, text: `结论 ${concl[0].from}s 出现（前 1/4 内${infoSec < totalSec ? '，不数感受段' : ''}）` });
   const short = rows.filter((r) => r.screen.length && r.to - r.from < readSec(hanCount(r.screen.join(''))));
   if (short.length) out.push({ level: 'warn', topic: T, text: `屏幕上的字停不够读完：${short.map((r) => `${r.point}（${(r.to - r.from).toFixed(1)}s，要 ${readSec(hanCount(r.screen.join(''))).toFixed(1)}s）`).join('、')}` });
   if (sup.length) out.push({ level: 'ok', topic: T, text: `支撑点时长：${sup.map((s) => `${s.point} ${(s.to - s.from).toFixed(1)}s（${Math.round(((s.to - s.from) / totalSec) * 100)}%）`).join(' · ')}` });
 
   // 没有承载任何信息点的时长
   const covered = new Array(Math.ceil(totalSec * 10)).fill(false);
+  for (const [a, b] of spans) for (let k = Math.max(0, Math.floor(a * 10)); k < Math.min(covered.length, Math.ceil(b * 10)); k++) covered[k] = true; // 感受段算有承载
   for (const r of rows) for (let k = Math.max(0, Math.floor(r.from * 10)); k < Math.min(covered.length, Math.ceil(r.to * 10)); k++) covered[k] = true;
   const idle = covered.filter((c) => !c).length / 10;
   if (idle > totalSec * 0.15) out.push({ level: 'hint', topic: T, text: `有 ${idle.toFixed(1)}s（${Math.round((idle / totalSec) * 100)}%）没有承载任何信息点——是有意的过场 / 留白吗？` });
@@ -153,5 +231,13 @@ export function runBrief(filmId: string, totalSec: number, root = process.cwd())
   const mPath = path.join(dir, 'audio', 'music.json');
   const climaxes = climaxesOf(fs.existsSync(mPath) ? JSON.parse(fs.readFileSync(mPath, 'utf-8')) : null);
   const rows = parseBriefTable(director);
-  return { items: [...briefCheck(rows, totalSec, vo), ...planStructureReview(rows, climaxes, vo)], paper: paperScript(rows, vo) };
+  const { kind, spans } = kindOf(director);
+  if (kind === '感受型') {
+    const line = fieldOf(director, '感受线');
+    return { items: [...feelingCheck(director), ...factTrace(director, rows, vo)], paper: `（感受型：不出信息纸面稿）${line ? `\n感受线：${line}` : ''}` };
+  }
+  const note: ReviewItem[] = kind === null
+    ? [{ level: 'hint', topic: '内容策划', text: '没声明片型：先判一下——看完要观众复述一句话（信息型），还是留下一种感觉（感受型）？两者都有就写「混合」+「感受段」时间段。现在按信息型检查' }]
+    : kind === '混合' ? feelingCheck(director, totalSec) : [];
+  return { items: [...note, ...briefCheck(rows, totalSec, vo, spans), ...factTrace(director, rows, vo), ...planStructureReview(rows, climaxes, vo, 1, spans)], paper: paperScript(rows, vo) };
 }

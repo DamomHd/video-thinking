@@ -1,6 +1,6 @@
 # 银色黑白 3D 螺旋婚礼蛋糕舞台 · Silver B&W 3D Wedding-cake Stage
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 9 条（OPUSCAR 98 纪念片里《歌舞大王齐格飞》The Great Ziegfeld（1936）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 9 条（OPUSCAR 98 纪念片里《歌舞大王齐格飞》The Great Ziegfeld（1936）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：3D（3D·B&W）　**手法组合**：three.js 三维 · 米高梅银色黑白 · 1936 年歌舞大场面 · 鸵鸟羽毛与雪纺（three.js 3D · MGM silver black and white · 1936 revue spectacle · Ostrich feathers and chiffon）

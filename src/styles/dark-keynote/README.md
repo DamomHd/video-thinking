@@ -1,6 +1,6 @@
 # 暗色科技发布 · Dark Tech Keynote
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：信息与发布（Information & Keynote）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：信息与发布（Information & Keynote）
 
 **一句话**：虚构 app Tidy 的发布片：被埋掉的光标一键把几百个窗口归位。（Launch film for Tidy, a fictional app: one buried cursor snaps hundreds of windows back into place.）
 

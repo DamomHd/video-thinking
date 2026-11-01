@@ -1,6 +1,6 @@
 # 移轴微缩 · Tilt-Shift Miniature
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：材质与 3D（Materials & 3D）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：材质与 3D（Materials & 3D）
 
 **一句话**：玩具城的早高峰，一切都像模型。（Morning rush hour in a town that looks like a model: traffic, trains and tiny people.）
 

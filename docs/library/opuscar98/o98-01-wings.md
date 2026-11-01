@@ -1,6 +1,6 @@
 # 默片 3D 空战 · 正色片黑白 + 琥珀染色 · Silent-era 3D Dogfight, Tinted Ortho B&W
 
-> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 1 条（OPUSCAR 98 纪念片里《翼》Wings（1927/28）那一段的风格；LemoLab，MIT，commit `413a6bd`），2026-10-27 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
+> 原文：lemo-opuscar `styleboard/opuscar98_styles.json` 第 1 条（OPUSCAR 98 纪念片里《翼》Wings（1927/28）那一段的风格；LemoLab，MIT，commit `f171360`），2026-10-31 收入本仓库作参考（不在风格库里，片子不能选它当风格），未改动。
 > 这是约 5 秒片段的风格，没有完整的十一节说明，所以不进风格库。用法：当视觉语言的参考——某一段画面想要这种质感时，借它的提示词写进决策单，声音、镜头、坑由模型自己补。
 
 **渲染**：3D（3D·B&W）　**手法组合**：three.js 三维 · 正色片黑白 · 默片染色 · 放映磨损和圆形光圈（three.js 3D · Orthochromatic black and white · Silent-film tinting · Projector wear and iris）

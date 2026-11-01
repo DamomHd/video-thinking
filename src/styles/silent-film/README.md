@@ -1,6 +1,6 @@
 # 1920s 默片 · 1920s Silent Film
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：电影与时代（Cinema & Eras）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：电影与时代（Cinema & Eras）
 
 **一句话**：面包店学徒追一个滚走的面包，最后掰成两半分给饿肚子的小女孩。（A baker's boy chases a runaway loaf downhill, then breaks it in half for a hungry girl.）
 

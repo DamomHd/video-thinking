@@ -1,6 +1,6 @@
 import { test, describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { reviewDirector, reviewDesign, DESIGN_DIMS, densityReview, keyPitchClasses, licenseReview, bedReview, recentFilms, voiceBalanceReview, soundRulesReview, soundCrossings, quietRuns } from '../../scripts/guard/review.js';
+import { reviewDirector, reviewDesign, DESIGN_DIMS, densityReview, keyPitchClasses, licenseReview, bedReview, recentFilms, voiceBalanceReview, soundRulesReview, soundCrossings, quietRuns, musicOriginReview } from '../../scripts/guard/review.js';
 
 test('reviewDirector：缺单 / 缺节 / 空项 / 占位 / 主镜头未定', () => {
   assert.equal(reviewDirector(null)[0].level, 'warn');
@@ -136,4 +136,12 @@ test('quietRuns：比中位数低 12 dB 以上且 ≥ 0.3s 才算；给出最安
   const q = quietRuns(lv, 0.1);
   assert.deepEqual(q.runs, [[2, 2.4]]);
   assert.equal(q.deepestBelowMedian, 21);
+});
+
+test('musicOriginReview：通用模板（本地合成 / 采样演奏）报 warn；按片作曲和外部曲目 ok', () => {
+  assert.equal(musicOriginReview([{ title: '本地合成配乐', bpm: 91 }])[0].level, 'warn');
+  assert.equal(musicOriginReview([{ title: '本地作曲 · 真实乐器采样（chamber）', source: 'local-sampled' }])[0].level, 'warn');
+  assert.match(musicOriginReview([{ title: 'x', source: 'score', key: '10A', bpm: 90 }])[0].text, /按片作曲（10A · 90 BPM）/);
+  assert.equal(musicOriginReview([{ title: 'Us Ambient Love (Adapted)' }])[0].level, 'ok');
+  assert.deepEqual(musicOriginReview([]), []);
 });

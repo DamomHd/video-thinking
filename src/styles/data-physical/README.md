@@ -1,6 +1,6 @@
 # 数据实物化 · Data Physicalization
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：十二年风电和太阳能装机叠成实物，绕表盘升成两条螺旋，2021 年太阳能反超。（Twelve years of wind and solar stacked as real plates, spiralling round a walnut dial until solar overtakes.）
 

@@ -1,6 +1,6 @@
 # 低多边形等距 · Low-poly Isometric Island
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：材质与 3D（Materials & 3D）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：材质与 3D（Materials & 3D）
 
 **一句话**：空海里一格格长出小岛和村庄，每放一块响一个音符，直到星空。（An island and its village grow tile by tile from an empty sea, each tile a note, into a starry night.）
 

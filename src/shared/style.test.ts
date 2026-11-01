@@ -105,7 +105,7 @@ it('收录风格（lemo-opuscar）：导入脚本的解析是确定的，登记�
   // 收录风格都有目录；带 STYLE.md 的目录（收录的 + 用 vw style keep 进库的自有风格）都已登记
   for (const id of Object.keys(OPUSCAR_STYLES)) assert.ok(dirs.includes(id), `${id} 没有目录`);
   for (const d of dirs) assert.ok(STYLES[d], `src/styles/${d} 有 STYLE.md 但没登记`);
-  assert.equal(Object.keys(OPUSCAR_STYLES).length, 59);
+  assert.equal(Object.keys(OPUSCAR_STYLES).length, 66);
   for (const [id, s] of Object.entries(OPUSCAR_STYLES)) {
     assert.equal(s.id, id);
     assert.ok(Object.keys(s.colors).length >= 3, `${id} 色板太少`);

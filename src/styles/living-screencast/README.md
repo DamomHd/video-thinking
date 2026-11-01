@@ -1,6 +1,6 @@
 # 活体实机录屏 · Living Screencast
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：信息与发布（Information & Keynote）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：信息与发布（Information & Keynote）
 
 **一句话**：像素小人 Clawd 搬进 Claude 应用，一镜到底演示 Plan 模式和自检。（Clawd hops out of the terminal into the Claude app and acts out plan mode and self-checks in one take.）
 

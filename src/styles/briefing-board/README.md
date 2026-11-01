@@ -1,6 +1,6 @@
 # 工程简报板 · Engineering Briefing Board
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：一条河要架桥，四种桥型在一面简报墙上逐个受检，拍板的是桥下要过的船。（Four bridge types are tested on one briefing wall, and the ship that must pass under picks the winner.）
 

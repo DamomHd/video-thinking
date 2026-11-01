@@ -1,6 +1,6 @@
 # 点云测绘 · LiDAR Survey
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：实证影像（Evidence Films）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：实证影像（Evidence Films）
 
 **一句话**：激光点云剥掉一片森林的树冠，露出当年农田的石墙：3.4 公里。（A laser survey strips the canopy off a Connecticut forest and finds 3.4 km of old farm walls.）
 

@@ -1,6 +1,6 @@
 # 科幻情景喜剧卡通 · Sci-Fi Sitcom Toon
 
-> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `413a6bd`）· 分类：卡通与动画（Cartoon & Anime）
+> 收录自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（LemoLab，commit `f171360`）· 分类：卡通与动画（Cartoon & Anime）
 
 **一句话**：厌世天才开传送门只想买杯咖啡，却穿过越来越离谱的平行宇宙。（A jaded genius opens a portal just to buy coffee and tumbles through ever-stranger universes.）
 
